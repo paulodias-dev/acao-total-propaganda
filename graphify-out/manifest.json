@@ -124,5 +124,41 @@
     "seen": 1793720140.59132,
     "ast_hash": "3b001f46e4f91a8da0db872539751e2b",
     "semantic_hash": "3b001f46e4f91a8da0db872539751e2b"
+  },
+  "AGENTS.md": {
+    "mtime": 1793720139.7938511,
+    "seen": 1793720313.6560798,
+    "ast_hash": "f36539ecc9af68f33ebd72770ce4a19e",
+    "semantic_hash": ""
+  },
+  "README.md": {
+    "mtime": 1791373470.6796181,
+    "seen": 1793720313.656081,
+    "ast_hash": "eebf897a280dfaa1351a7cbde6d98d50",
+    "semantic_hash": ""
+  },
+  "index.html": {
+    "mtime": 1793720311.0705247,
+    "seen": 1793720313.656082,
+    "ast_hash": "df6acf829255a2382bd9b91f46e97a80",
+    "semantic_hash": ""
+  },
+  "public/favicon.png": {
+    "mtime": 1791373470.6807945,
+    "seen": 1793720313.656082,
+    "ast_hash": "72ead1d67057ab1d056ee74a679c4291",
+    "semantic_hash": ""
+  },
+  "public/logo-acao-final.png": {
+    "mtime": 1791373470.6813955,
+    "seen": 1793720313.6560829,
+    "ast_hash": "8549efe8256654b3c1b22823b0341306",
+    "semantic_hash": ""
+  },
+  "public/logo-horizontal.png": {
+    "mtime": 1791373470.684193,
+    "seen": 1793720313.656084,
+    "ast_hash": "dbec0a754b9e1e7083e6390767cf1970",
+    "semantic_hash": ""
   }
 }
