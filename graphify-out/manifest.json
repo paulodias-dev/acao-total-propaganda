@@ -1,0 +1,128 @@
+{
+  ".codex/hooks.json": {
+    "mtime": 1793720139.7940235,
+    "seen": 1793720140.591308,
+    "ast_hash": "005ac71c84af2cae38e255e2b9de2411",
+    "semantic_hash": "005ac71c84af2cae38e255e2b9de2411"
+  },
+  "metadata.json": {
+    "mtime": 1791373470.6799815,
+    "seen": 1793720140.591309,
+    "ast_hash": "5af21c33daa7851bb9ebf787c336f77f",
+    "semantic_hash": "5af21c33daa7851bb9ebf787c336f77f"
+  },
+  "package.json": {
+    "mtime": 1791373526.1191509,
+    "seen": 1793720140.59131,
+    "ast_hash": "1948d8b17cd845b292463209abdc92db",
+    "semantic_hash": "1948d8b17cd845b292463209abdc92db"
+  },
+  "src/App.tsx": {
+    "mtime": 1791373470.684459,
+    "seen": 1793720140.59131,
+    "ast_hash": "5b416ecece5b06137f153853e733035e",
+    "semantic_hash": "5b416ecece5b06137f153853e733035e"
+  },
+  "src/components/AuthorityStats.tsx": {
+    "mtime": 1791373470.6847181,
+    "seen": 1793720140.5913112,
+    "ast_hash": "260bb55bb42ef169891ec892134bf629",
+    "semantic_hash": "260bb55bb42ef169891ec892134bf629"
+  },
+  "src/components/BentoServices.tsx": {
+    "mtime": 1791373470.6849408,
+    "seen": 1793720140.591312,
+    "ast_hash": "3d6338f5b6f60ab7d4ab5fe7eff9f4c5",
+    "semantic_hash": "3d6338f5b6f60ab7d4ab5fe7eff9f4c5"
+  },
+  "src/components/ContactFooter.tsx": {
+    "mtime": 1791373470.6851723,
+    "seen": 1793720140.591312,
+    "ast_hash": "405df1f2d469c51c29410322c9bc8670",
+    "semantic_hash": "405df1f2d469c51c29410322c9bc8670"
+  },
+  "src/components/FloatingWhatsapp.tsx": {
+    "mtime": 1791373470.6853101,
+    "seen": 1793720140.591313,
+    "ast_hash": "cee99677433f3780373d7227f2aad7cd",
+    "semantic_hash": "cee99677433f3780373d7227f2aad7cd"
+  },
+  "src/components/Hero.tsx": {
+    "mtime": 1791373470.6854734,
+    "seen": 1793720140.591313,
+    "ast_hash": "550ce65805d3e2dcaa7e98b5a4e12d80",
+    "semantic_hash": "550ce65805d3e2dcaa7e98b5a4e12d80"
+  },
+  "src/components/Logo.tsx": {
+    "mtime": 1791373470.685577,
+    "seen": 1793720140.5913138,
+    "ast_hash": "782bb8c1238b9e87b9866f2fa787b8d6",
+    "semantic_hash": "782bb8c1238b9e87b9866f2fa787b8d6"
+  },
+  "src/components/Navigation.tsx": {
+    "mtime": 1791373470.6857376,
+    "seen": 1793720140.591315,
+    "ast_hash": "59ec838c523bd9ceac05d9440f9e8525",
+    "semantic_hash": "59ec838c523bd9ceac05d9440f9e8525"
+  },
+  "src/components/ScrollToTop.tsx": {
+    "mtime": 1791373470.687582,
+    "seen": 1793720140.591315,
+    "ast_hash": "c249b869b3a1018db620d301befe2ee5",
+    "semantic_hash": "c249b869b3a1018db620d301befe2ee5"
+  },
+  "src/main.tsx": {
+    "mtime": 1791373470.6878693,
+    "seen": 1793720140.591316,
+    "ast_hash": "2b36426d5ad7e08ef79746aa524f4fb7",
+    "semantic_hash": "2b36426d5ad7e08ef79746aa524f4fb7"
+  },
+  "src/views/AboutView.tsx": {
+    "mtime": 1791373470.6881797,
+    "seen": 1793720140.591316,
+    "ast_hash": "ef991c0382c15bca836848ea927a8bbb",
+    "semantic_hash": "ef991c0382c15bca836848ea927a8bbb"
+  },
+  "src/views/ContactView.tsx": {
+    "mtime": 1791373470.6883147,
+    "seen": 1793720140.591317,
+    "ast_hash": "3e275f7220e2a3eae1e7f84de4e585e7",
+    "semantic_hash": "3e275f7220e2a3eae1e7f84de4e585e7"
+  },
+  "src/views/DemosView.tsx": {
+    "mtime": 1791373470.6885393,
+    "seen": 1793720140.5913181,
+    "ast_hash": "5dae920cb0e945bbd1e3ecf031d6c873",
+    "semantic_hash": "5dae920cb0e945bbd1e3ecf031d6c873"
+  },
+  "src/views/HomeView.tsx": {
+    "mtime": 1791373470.688681,
+    "seen": 1793720140.5913181,
+    "ast_hash": "50d74decb9bc797e958aec4b06d6954b",
+    "semantic_hash": "50d74decb9bc797e958aec4b06d6954b"
+  },
+  "src/views/QuoteView.tsx": {
+    "mtime": 1791373470.6888726,
+    "seen": 1793720140.591319,
+    "ast_hash": "599f9c0e494ef1487089efb83a1a55c2",
+    "semantic_hash": "599f9c0e494ef1487089efb83a1a55c2"
+  },
+  "src/views/ServicesView.tsx": {
+    "mtime": 1791373470.689011,
+    "seen": 1793720140.591319,
+    "ast_hash": "293a3443ef4bde0364b6f9d726ada41e",
+    "semantic_hash": "293a3443ef4bde0364b6f9d726ada41e"
+  },
+  "tsconfig.json": {
+    "mtime": 1791373470.6890965,
+    "seen": 1793720140.59132,
+    "ast_hash": "8827451c4e35790dd3f3538c265e7d15",
+    "semantic_hash": "8827451c4e35790dd3f3538c265e7d15"
+  },
+  "vite.config.ts": {
+    "mtime": 1791373470.6891816,
+    "seen": 1793720140.59132,
+    "ast_hash": "3b001f46e4f91a8da0db872539751e2b",
+    "semantic_hash": "3b001f46e4f91a8da0db872539751e2b"
+  }
+}

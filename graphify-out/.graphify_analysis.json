@@ -1,0 +1,288 @@
+{
+  "communities": {
+    "0": [
+      "ref_lucide_react",
+      "ref_motion",
+      "ref_react",
+      "src_components_authoritystats",
+      "src_components_authoritystats_authoritystats",
+      "src_components_bentoservices",
+      "src_components_bentoservices_bentoservices",
+      "src_components_contactfooter",
+      "src_components_contactfooter_contactfooterprops",
+      "src_components_hero",
+      "src_components_hero_hero",
+      "src_components_hero_heroprops",
+      "src_views_contactview",
+      "src_views_contactview_faqitem",
+      "src_views_demosview",
+      "src_views_demosview_spotoption",
+      "src_views_homeview",
+      "src_views_homeview_homeviewprops",
+      "src_views_quoteview",
+      "src_views_quoteview_servicechannel",
+      "src_views_servicesview",
+      "src_views_servicesview_servicesviewprops"
+    ],
+    "1": [
+      "package",
+      "package_name",
+      "package_private",
+      "package_type",
+      "package_version",
+      "ref_autoprefixer",
+      "ref_dotenv",
+      "ref_esbuild",
+      "ref_express",
+      "ref_google_genai",
+      "ref_path",
+      "ref_tailwindcss",
+      "ref_tailwindcss_vite",
+      "ref_tsx",
+      "ref_types_express",
+      "ref_types_node",
+      "ref_typescript",
+      "ref_vite",
+      "ref_vitejs_plugin_react",
+      "vite_config"
+    ],
+    "2": [
+      "ref_react_dom",
+      "src_app",
+      "src_app_app",
+      "src_components_contactfooter_contactfooter",
+      "src_components_floatingwhatsapp",
+      "src_components_floatingwhatsapp_floatingwhatsapp",
+      "src_components_scrolltotop",
+      "src_components_scrolltotop_scrolltotop",
+      "src_index",
+      "src_main",
+      "src_views_aboutview",
+      "src_views_aboutview_aboutview",
+      "src_views_contactview_contactview",
+      "src_views_demosview_demosview",
+      "src_views_homeview_homeview",
+      "src_views_quoteview_quoteview",
+      "src_views_servicesview_servicesview"
+    ],
+    "3": [
+      "tsconfig",
+      "tsconfig_compileroptions",
+      "tsconfig_compileroptions_allowimportingtsextensions",
+      "tsconfig_compileroptions_allowjs",
+      "tsconfig_compileroptions_experimentaldecorators",
+      "tsconfig_compileroptions_isolatedmodules",
+      "tsconfig_compileroptions_jsx",
+      "tsconfig_compileroptions_lib",
+      "tsconfig_compileroptions_module",
+      "tsconfig_compileroptions_moduledetection",
+      "tsconfig_compileroptions_moduleresolution",
+      "tsconfig_compileroptions_noemit",
+      "tsconfig_compileroptions_paths",
+      "tsconfig_compileroptions_skiplibcheck",
+      "tsconfig_compileroptions_target",
+      "tsconfig_compileroptions_usedefineforclassfields"
+    ],
+    "4": [
+      "package_dependencies",
+      "package_dependencies_dotenv",
+      "package_dependencies_express",
+      "package_dependencies_google_genai",
+      "package_dependencies_lucide_react",
+      "package_dependencies_motion",
+      "package_dependencies_react",
+      "package_dependencies_react_dom",
+      "package_dependencies_tailwindcss_vite",
+      "package_dependencies_vite",
+      "package_dependencies_vitejs_plugin_react"
+    ],
+    "5": [
+      "package_devdependencies",
+      "package_devdependencies_autoprefixer",
+      "package_devdependencies_esbuild",
+      "package_devdependencies_tailwindcss",
+      "package_devdependencies_tsx",
+      "package_devdependencies_types_express",
+      "package_devdependencies_types_node",
+      "package_devdependencies_typescript",
+      "package_devdependencies_vite"
+    ],
+    "6": [
+      "src_components_logo",
+      "src_components_logo_logo",
+      "src_components_logo_logoprops",
+      "src_components_logo_sizemap",
+      "src_components_navigation",
+      "src_components_navigation_navigation",
+      "src_components_navigation_navigationprops"
+    ],
+    "7": [
+      "package_allowscripts",
+      "package_allowscripts_esbuild_0_25_12",
+      "package_allowscripts_esbuild_0_28_1",
+      "package_allowscripts_fsevents_2_3_3",
+      "package_allowscripts_google_genai_2_10_0",
+      "package_allowscripts_protobufjs_7_6_6"
+    ],
+    "8": [
+      "package_scripts",
+      "package_scripts_build",
+      "package_scripts_clean",
+      "package_scripts_dev",
+      "package_scripts_lint",
+      "package_scripts_preview"
+    ]
+  },
+  "cohesion": {
+    "0": 0.16017316017316016,
+    "1": 0.11052631578947368,
+    "2": 0.21323529411764705,
+    "3": 0.125,
+    "4": 0.18181818181818182,
+    "5": 0.2222222222222222,
+    "6": 0.38095238095238093,
+    "7": 0.3333333333333333,
+    "8": 0.3333333333333333
+  },
+  "gods": [
+    {
+      "id": "ref_react",
+      "label": "react",
+      "degree": 17
+    },
+    {
+      "id": "ref_lucide_react",
+      "label": "lucide-react",
+      "degree": 15
+    },
+    {
+      "id": "tsconfig_compileroptions",
+      "label": "compilerOptions",
+      "degree": 15
+    },
+    {
+      "id": "ref_motion",
+      "label": "motion",
+      "degree": 14
+    },
+    {
+      "id": "src_app_app",
+      "label": "App()",
+      "degree": 12
+    },
+    {
+      "id": "package_allowscripts",
+      "label": "allowScripts",
+      "degree": 6
+    },
+    {
+      "id": "package_scripts",
+      "label": "scripts",
+      "degree": 6
+    },
+    {
+      "id": "src_components_navigation_navigation",
+      "label": "Navigation()",
+      "degree": 4
+    },
+    {
+      "id": "src_components_contactfooter_contactfooter",
+      "label": "ContactFooter()",
+      "degree": 3
+    },
+    {
+      "id": "src_components_floatingwhatsapp_floatingwhatsapp",
+      "label": "FloatingWhatsapp()",
+      "degree": 3
+    }
+  ],
+  "surprises": [
+    {
+      "source": "App()",
+      "target": "Navigation()",
+      "source_files": [
+        "src/App.tsx",
+        "src/components/Navigation.tsx"
+      ],
+      "confidence": "EXTRACTED",
+      "relation": "calls",
+      "why": "bridges separate communities"
+    },
+    {
+      "source": "App()",
+      "target": "ContactFooter()",
+      "source_files": [
+        "src/App.tsx",
+        "src/components/ContactFooter.tsx"
+      ],
+      "confidence": "EXTRACTED",
+      "relation": "calls",
+      "why": "cross-file semantic connection"
+    },
+    {
+      "source": "App()",
+      "target": "FloatingWhatsapp()",
+      "source_files": [
+        "src/App.tsx",
+        "src/components/FloatingWhatsapp.tsx"
+      ],
+      "confidence": "EXTRACTED",
+      "relation": "calls",
+      "why": "cross-file semantic connection"
+    },
+    {
+      "source": "App()",
+      "target": "ScrollToTop()",
+      "source_files": [
+        "src/App.tsx",
+        "src/components/ScrollToTop.tsx"
+      ],
+      "confidence": "EXTRACTED",
+      "relation": "calls",
+      "why": "cross-file semantic connection"
+    },
+    {
+      "source": "App()",
+      "target": "AboutView()",
+      "source_files": [
+        "src/App.tsx",
+        "src/views/AboutView.tsx"
+      ],
+      "confidence": "EXTRACTED",
+      "relation": "calls",
+      "why": "cross-file semantic connection"
+    }
+  ],
+  "questions": [
+    {
+      "type": "bridge_node",
+      "question": "Why does `react` connect `Community 0` to `Community 1`, `Community 2`, `Community 6`?",
+      "why": "High betweenness centrality (0.185) - this node is a cross-community bridge."
+    },
+    {
+      "type": "isolated_nodes",
+      "question": "What connects `autoprefixer`, `dotenv`, `esbuild` to the rest of the system?",
+      "why": "10 weakly-connected nodes found - possible documentation gaps or missing edges."
+    },
+    {
+      "type": "low_cohesion",
+      "question": "Should `Community 1` be split into smaller, more focused modules?",
+      "why": "Cohesion score 0.11052631578947368 - nodes in this community are weakly interconnected."
+    },
+    {
+      "type": "bridge_node",
+      "question": "Why does `dependencies` connect `Community 4` to `Community 1`?",
+      "why": "High betweenness centrality (0.145) - this node is a cross-community bridge."
+    },
+    {
+      "type": "low_cohesion",
+      "question": "Should `Community 3` be split into smaller, more focused modules?",
+      "why": "Cohesion score 0.125 - nodes in this community are weakly interconnected."
+    },
+    {
+      "type": "bridge_node",
+      "question": "Why does `lucide-react` connect `Community 0` to `Community 1`, `Community 2`, `Community 6`?",
+      "why": "High betweenness centrality (0.126) - this node is a cross-community bridge."
+    }
+  ]
+}
