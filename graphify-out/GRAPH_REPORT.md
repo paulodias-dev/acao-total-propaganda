@@ -1,7 +1,7 @@
 # Graph Report - acao-total-react  (2026-11-03)
 
 ## Corpus Check
-- 23 files · ~28,699 words
+- 23 files · ~29,064 words
 - Verdict: corpus is large enough that graph structure adds value.
 - Unclassified: 3 file(s) not represented in the graph (top: .example 1, (none) 1, .css 1)
 
@@ -11,7 +11,7 @@
 - Token cost: 0 input · 0 output
 
 ## Graph Freshness
-- Built from commit: `ad644f0c`
+- Built from commit: `e3ba29d6`
 - Run `git rev-parse HEAD` and compare to check if the graph is stale.
 - Run `graphify update .` after code changes (no API cost).
 

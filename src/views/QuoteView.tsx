@@ -13,7 +13,8 @@ import {
   Truck,
   Calculator,
   MessageCircle,
-  FileText
+  FileText,
+  Tv
 } from "lucide-react";
 
 interface ServiceChannel {
@@ -38,6 +39,7 @@ export default function QuoteView() {
   const [trioDays, setTrioDays] = useState(1);
   
   const [radioStores, setRadioStores] = useState(1);
+  const [indoorScreens, setIndoorScreens] = useState(1);
   
   const [spotQuantity, setSpotQuantity] = useState(1);
   
@@ -73,6 +75,15 @@ export default function QuoteView() {
       priceUnit: "mês por filial",
       icon: Radio,
       desc: "Trilha sonora personalizada e anúncios de ofertas dentro do seu supermercado."
+    },
+    {
+      id: "tv-indoor",
+      name: "TV Indoor & Mídia no PDV",
+      category: "Varejo",
+      basePrice: 350,
+      priceUnit: "mês por tela",
+      icon: Tv,
+      desc: "Programação visual estratégica para telas em lojas, clínicas e ambientes de alto fluxo."
     },
     {
       id: "locucao-spot",
@@ -145,6 +156,16 @@ export default function QuoteView() {
         name: "Rádio Interna Corporativa",
         cost,
         formula: `${radioStores} filial(is) (a R$ 290,00/mês)`
+      });
+      total += cost;
+    }
+
+    if (selectedChannels.includes("tv-indoor")) {
+      const cost = 350 * indoorScreens;
+      breakdown.push({
+        name: "TV Indoor & Mídia no PDV",
+        cost,
+        formula: `${indoorScreens} tela(s) (a R$ 350,00/mês)`
       });
       total += cost;
     }
@@ -444,6 +465,32 @@ export default function QuoteView() {
                           onChange={(e) => setRadioStores(Number(e.target.value))}
                           className="w-full h-1 bg-white/10 rounded-lg appearance-none cursor-pointer accent-brand-yellow"
                         />
+                      </div>
+                    </div>
+                  )}
+
+                  {/* TV Indoor parameters */}
+                  {selectedChannels.includes("tv-indoor") && (
+                    <div className="bg-black/30 p-5 rounded-2xl border border-white/5 space-y-4">
+                      <h4 className="text-xs font-bold text-brand-yellow flex items-center gap-2 font-display">
+                        <Tv className="w-4 h-4 text-brand-yellow" /> TV Indoor & Mídia no PDV
+                      </h4>
+                      <div className="space-y-1.5">
+                        <label className="text-[11px] text-slate-400 flex justify-between font-mono">
+                          <span>Número de Telas / Pontos:</span>
+                          <span className="text-white font-bold">{indoorScreens} tela(s)</span>
+                        </label>
+                        <input
+                          type="range"
+                          min="1"
+                          max="20"
+                          value={indoorScreens}
+                          onChange={(e) => setIndoorScreens(Number(e.target.value))}
+                          className="w-full h-1 bg-white/10 rounded-lg appearance-none cursor-pointer accent-brand-yellow"
+                        />
+                        <span className="text-[10px] text-slate-500 block mt-1">
+                          Inclui programação visual e atualização remota da grade de conteúdo.
+                        </span>
                       </div>
                     </div>
                   )}

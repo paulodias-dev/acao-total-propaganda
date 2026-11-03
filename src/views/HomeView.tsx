@@ -11,7 +11,8 @@ import {
   Users,
   Volume2,
   Calendar,
-  Trophy
+  Trophy,
+  Tv
 } from "lucide-react";
 
 interface HomeViewProps {
@@ -59,6 +60,13 @@ export default function HomeView({ onNavigate }: HomeViewProps) {
       desc: "Sua própria rádio no supermercado ou magazine para divulgar ofertas e reter clientes no ponto de venda.",
       icon: Radio,
       badge: "Aumento de Vendas"
+    },
+    {
+      id: "tv-indoor",
+      title: "TV Indoor & Mídia no PDV",
+      desc: "Conteúdo visual estratégico em telas de lojas, clínicas e ambientes de alto fluxo para influenciar a decisão de compra.",
+      icon: Tv,
+      badge: "Mídia no PDV"
     },
     {
       id: "trafego-pago",
@@ -213,7 +221,7 @@ export default function HomeView({ onNavigate }: HomeViewProps) {
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6" id="home-featured-grid">
+          <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-5 gap-6" id="home-featured-grid">
             {featuredServices.map((service, idx) => {
               const Icon = service.icon;
               return (

@@ -12,7 +12,8 @@ import {
   Sparkles,
   Music,
   Map,
-  Volume2
+  Volume2,
+  Tv
 } from "lucide-react";
 
 interface ServicesViewProps {
@@ -89,6 +90,26 @@ export default function ServicesView({ initialActiveServiceId, onNavigate }: Ser
         { label: "Grade Musical", value: "Sertanejo, Pop, MPB ou Gospel (100% customizado)" },
         { label: "Atualização", value: "Inserção instantânea de novas ofertas em menos de 2 horas úteis" },
         { label: "Nicho Recomendado", value: "Supermercados, magazines, farmácias, sacolões e magazines" }
+      ]
+    },
+    {
+      id: "tv-indoor",
+      shortTitle: "TV Indoor",
+      title: "TV Indoor & Mídia em Ponto de Venda",
+      tagline: "Sua marca em movimento no ambiente onde a decisão de compra acontece.",
+      icon: Tv,
+      desc: "Criamos e programamos conteúdos para telas instaladas em lojas, clínicas, academias, recepções e outros ambientes de alto fluxo. A TV Indoor combina ofertas, entretenimento e informação em uma experiência elegante, sem poluir o espaço e com mensagens exibidas no momento certo.",
+      benefits: [
+        "Programação visual sob medida para o perfil e o ritmo de cada estabelecimento.",
+        "Conteúdo promocional, institucional e informativo organizado em playlists estratégicas.",
+        "Atualização remota das campanhas para destacar ofertas sazonais sem retrabalho.",
+        "Mais tempo de exposição e lembrança de marca durante a jornada do cliente."
+      ],
+      specs: [
+        { label: "Formato", value: "Telas verticais ou horizontais em Full HD" },
+        { label: "Conteúdo", value: "Ofertas, vídeos, institucionais, cardápios e informativos" },
+        { label: "Gestão", value: "Grade digital atualizada remotamente" },
+        { label: "Indicado Para", value: "Varejo, clínicas, academias, recepções e franquias" }
       ]
     },
     {
