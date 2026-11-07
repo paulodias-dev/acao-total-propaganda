@@ -14,7 +14,7 @@ import {
 
 export default function BentoServices() {
   const [isPlayingRadio, setIsPlayingRadio] = useState(false);
-  const [digitalTab, setDigitalTab] = useState<"traffic" | "social" | "web">("traffic");
+  const [digitalTab, setDigitalTab] = useState<"traffic" | "social" | "web">("social");
 
   // Animations for scroll container
   const containerVariants = {
@@ -177,23 +177,23 @@ export default function BentoServices() {
                   <TrendingUp className="w-6 h-6" />
                 </div>
                 <span className="text-xs font-mono text-slate-500 bg-white/5 px-2.5 py-1 rounded-full border border-white/5 uppercase tracking-wider">
-                  Tráfego & Presença
+                  Instagram + Vendas Locais
                 </span>
               </div>
               
               <h3 className="text-2xl font-bold text-white mb-3 group-hover:text-brand-yellow transition-colors font-display">
-                Presença Digital Completa
+                Marketing Digital para Comércio
               </h3>
               <p className="text-slate-400 text-sm mb-6 leading-relaxed">
-                Transformamos cliques em clientes recorrentes usando estratégias orientadas por dados, anúncios otimizados e páginas focadas estritamente em fechar negócios.
+                Transformamos o Instagram da sua empresa em uma vitrine ativa, bonita e estratégica para atrair clientes da região e gerar vendas pelo WhatsApp.
               </p>
 
               {/* Interative tabs mockup inside the Digital Service Card */}
               <div className="flex gap-2 mb-6 bg-black/40 p-1 rounded-xl border border-white/5">
                 {[
-                  { id: "traffic", label: "Tráfego Pago" },
-                  { id: "social", label: "Social Media" },
-                  { id: "web", label: "Landing Pages" }
+                  { id: "traffic", label: "Anúncios Locais" },
+                  { id: "social", label: "Instagram" },
+                  { id: "web", label: "Conteúdo que Vende" }
                 ].map((tab) => (
                   <button
                     key={tab.id}
@@ -243,11 +243,11 @@ export default function BentoServices() {
                     >
                       <div className="flex items-start gap-2">
                         <CheckCircle className="w-4 h-4 text-brand-yellow shrink-0 mt-0.5" />
-                        <p>Design visual sofisticado que reflete o posicionamento de elite da sua empresa.</p>
+                        <p>Criamos artes profissionais para feed, stories, ofertas e datas comemorativas do seu comércio.</p>
                       </div>
                       <div className="flex items-start gap-2">
                         <CheckCircle className="w-4 h-4 text-brand-yellow shrink-0 mt-0.5" />
-                        <p>Textos e postagens persuasivas para converter visualizações em direct e vendas.</p>
+                        <p>Planejamos conteúdos e legendas persuasivas para transformar visualizações em directs, pedidos e vendas.</p>
                       </div>
                     </motion.div>
                   )}
@@ -261,7 +261,7 @@ export default function BentoServices() {
                     >
                       <div className="flex items-start gap-2">
                         <CheckCircle className="w-4 h-4 text-brand-yellow shrink-0 mt-0.5" />
-                        <p>Criação de páginas super rápidas e otimizadas para celulares, gerando novos leads.</p>
+                        <p>Conteúdos e chamadas comerciais pensados para apresentar seus produtos e levar o cliente ao WhatsApp.</p>
                       </div>
                       <div className="flex items-start gap-2">
                         <CheckCircle className="w-4 h-4 text-brand-yellow shrink-0 mt-0.5" />
@@ -275,7 +275,7 @@ export default function BentoServices() {
 
             {/* Digital Stats Mockup */}
             <div className="mt-4 flex items-center justify-between border-t border-white/5 pt-4 text-[11px] text-slate-400">
-              <span>Performance Comercial Digital</span>
+              <span>Presença Digital para o seu Comércio</span>
               <span className="font-mono font-bold text-brand-yellow flex items-center gap-1">
                 <TrendingUp className="w-3.5 h-3.5 text-brand-yellow" /> Campanhas Otimizadas Localmente
               </span>

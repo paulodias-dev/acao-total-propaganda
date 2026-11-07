@@ -14,6 +14,8 @@ import {
   Trophy,
   Tv
 } from "lucide-react";
+import { ENABLE_SMART_PROPOSAL_SIMULATOR } from "../config/features";
+import WhatsAppUnitButton from "../components/WhatsAppUnitButton";
 
 interface HomeViewProps {
   onNavigate: (page: string, subServiceId?: string) => void;
@@ -70,10 +72,10 @@ export default function HomeView({ onNavigate }: HomeViewProps) {
     },
     {
       id: "trafego-pago",
-      title: "Marketing Digital & Tráfego",
-      desc: "Anúncios cirúrgicos no Google, Facebook e Instagram para atrair clientes locais direto para o WhatsApp.",
+      title: "Instagram para Comércio",
+      desc: "Criamos artes profissionais, conteúdos estratégicos e anúncios locais para atrair clientes direto para o WhatsApp.",
       icon: TrendingUp,
-      badge: "Alta Performance"
+      badge: "Artes + Vendas"
     },
     {
       id: "locucao-spot",
@@ -83,10 +85,6 @@ export default function HomeView({ onNavigate }: HomeViewProps) {
       badge: "Estúdio de Elite"
     }
   ];
-
-  const handleWhatsAppChat = () => {
-    window.open("https://wa.me/5562991962033?text=Olá! Gostaria de conversar com um especialista da Ação Total sobre estratégias de propaganda.", "_blank", "noopener,noreferrer");
-  };
 
   return (
     <div className="relative min-h-screen">
@@ -150,15 +148,13 @@ export default function HomeView({ onNavigate }: HomeViewProps) {
             className="flex flex-col sm:flex-row gap-4 w-full sm:w-auto"
             id="hero-actions"
           >
-            <motion.button
-              onClick={handleWhatsAppChat}
-              whileHover={{ scale: 1.04 }}
-              whileTap={{ scale: 0.98 }}
+            <WhatsAppUnitButton
+              message="Olá! Gostaria de conversar com um especialista da Ação Total sobre estratégias de propaganda."
               className="w-full sm:w-auto px-8 py-4 rounded-full bg-brand-yellow hover:bg-[#ffd633] text-black text-base font-extrabold tracking-wide shadow-xl shadow-brand-yellow/10 hover:shadow-brand-yellow/25 transition-all duration-300 flex items-center justify-center gap-2.5 cursor-pointer"
             >
               <MessageCircle className="w-5 h-5 fill-current" />
               Falar com Especialista
-            </motion.button>
+            </WhatsAppUnitButton>
 
             <motion.button
               onClick={() => onNavigate("servicos")}
@@ -374,7 +370,7 @@ export default function HomeView({ onNavigate }: HomeViewProps) {
       </section>
 
       {/* 5. SELECTION SIMULADOR CTA BANNER */}
-      <section className="py-20 px-6 bg-midnight-carbon relative">
+      {ENABLE_SMART_PROPOSAL_SIMULATOR && <section className="py-20 px-6 bg-midnight-carbon relative">
         <div className="max-w-5xl mx-auto">
           <div className="relative glass-card rounded-3xl border border-white/10 p-8 sm:p-12 text-center overflow-hidden">
             <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-tr from-brand-yellow/5 to-transparent pointer-events-none" />
@@ -398,7 +394,7 @@ export default function HomeView({ onNavigate }: HomeViewProps) {
             </button>
           </div>
         </div>
-      </section>
+      </section>}
     </div>
   );
 }

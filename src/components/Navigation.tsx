@@ -2,6 +2,7 @@ import React, { useState, useEffect, useRef } from "react";
 import { motion, AnimatePresence } from "motion/react";
 import { Menu, X, ArrowRight } from "lucide-react";
 import Logo from "./Logo";
+import { ENABLE_SMART_PROPOSAL_SIMULATOR } from "../config/features";
 
 interface NavigationProps {
   activePage: string;
@@ -62,7 +63,7 @@ export default function Navigation({ activePage, onNavigate, announcementOffset 
     { name: "Quem Somos", page: "sobre" },
     { name: "Serviços", page: "servicos" },
     { name: "Showroom", page: "demos" },
-    { name: "Simulador", page: "orcamento" },
+    ...(ENABLE_SMART_PROPOSAL_SIMULATOR ? [{ name: "Simulador", page: "orcamento" }] : []),
     { name: "Contato", page: "contato" },
   ];
 
@@ -119,17 +120,19 @@ export default function Navigation({ activePage, onNavigate, announcementOffset 
           </nav>
 
           {/* Right Button (Desktop) */}
-          <div className="hidden md:flex items-center" id="nav-desktop-cta">
-            <motion.button
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.98 }}
-              onClick={() => handleLinkClick("orcamento")}
-              className="bg-brand-yellow hover:bg-[#ffd633] text-black px-5 py-2 rounded-full text-[10px] font-black uppercase tracking-widest shadow-lg shadow-brand-yellow/10 hover:shadow-brand-yellow/20 transition-all duration-300 cursor-pointer flex items-center gap-1"
-            >
-              Simulador
-              <ArrowRight className="w-3.5 h-3.5 text-black stroke-[3]" />
-            </motion.button>
-          </div>
+          {ENABLE_SMART_PROPOSAL_SIMULATOR && (
+            <div className="hidden md:flex items-center" id="nav-desktop-cta">
+              <motion.button
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.98 }}
+                onClick={() => handleLinkClick("orcamento")}
+                className="bg-brand-yellow hover:bg-[#ffd633] text-black px-5 py-2 rounded-full text-[10px] font-black uppercase tracking-widest shadow-lg shadow-brand-yellow/10 hover:shadow-brand-yellow/20 transition-all duration-300 cursor-pointer flex items-center gap-1"
+              >
+                Simulador
+                <ArrowRight className="w-3.5 h-3.5 text-black stroke-[3]" />
+              </motion.button>
+            </div>
+          )}
 
           {/* Mobile Menu Toggle */}
           <button
@@ -174,16 +177,18 @@ export default function Navigation({ activePage, onNavigate, announcementOffset 
                 );
               })}
 
-              <motion.button
-                initial={{ opacity: 0, y: 10 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: navLinks.length * 0.05 }}
-                onClick={() => handleLinkClick("orcamento")}
-                className="w-full bg-brand-yellow hover:bg-[#ffd633] text-black py-3.5 rounded-xl text-center font-extrabold uppercase tracking-wider shadow-lg shadow-brand-yellow/10 cursor-pointer flex items-center justify-center gap-2"
-              >
-                Simular Orçamento
-                <ArrowRight className="w-4 h-4 text-black stroke-[3]" />
-              </motion.button>
+              {ENABLE_SMART_PROPOSAL_SIMULATOR && (
+                <motion.button
+                  initial={{ opacity: 0, y: 10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: navLinks.length * 0.05 }}
+                  onClick={() => handleLinkClick("orcamento")}
+                  className="w-full bg-brand-yellow hover:bg-[#ffd633] text-black py-3.5 rounded-xl text-center font-extrabold uppercase tracking-wider shadow-lg shadow-brand-yellow/10 cursor-pointer flex items-center justify-center gap-2"
+                >
+                  Simular Orçamento
+                  <ArrowRight className="w-4 h-4 text-black stroke-[3]" />
+                </motion.button>
+              )}
             </div>
           </motion.div>
         )}

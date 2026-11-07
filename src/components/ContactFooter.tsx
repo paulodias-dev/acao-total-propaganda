@@ -9,6 +9,8 @@ import {
   ExternalLink,
   MessageCircle
 } from "lucide-react";
+import { WHATSAPP_UNITS } from "../config/locations";
+import WhatsAppUnitButton from "./WhatsAppUnitButton";
 
 interface ContactFooterProps {
   onNavigate?: (page: string) => void;
@@ -23,9 +25,6 @@ export default function ContactFooter({ onNavigate }: ContactFooterProps) {
   });
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
-
-  const phone = "(62) 99196-2033";
-  const rawPhone = "5562991962033";
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target;
@@ -45,15 +44,10 @@ export default function ContactFooter({ onNavigate }: ContactFooterProps) {
     }, 1200);
   };
 
-  // Compile form data to WhatsApp pre-filled link
-  const getWhatsappPrefilledLink = () => {
-    const text = `Olá! Me chamo *${formData.nome}*.\n` +
+  const getWhatsappMessage = () => `Olá! Me chamo *${formData.nome}*.\n` +
       `📞 Telefone: *${formData.telefone}*\n` +
       `🏢 Segmento: *${formData.segmento || "Não informado"}*\n` +
       `📝 Mensagem: ${formData.mensagem || "Gostaria de solicitar um orçamento para alavancar minha empresa com a Ação Total!"}`;
-    
-    return `https://wa.me/${rawPhone}?text=${encodeURIComponent(text)}`;
-  };
 
   const handleResetForm = () => {
     setFormData({ nome: "", telefone: "", segmento: "", mensagem: "" });
@@ -105,16 +99,19 @@ export default function ContactFooter({ onNavigate }: ContactFooterProps) {
                   <div className="w-10 h-10 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center text-brand-yellow shrink-0">
                     <Phone className="w-5 h-5" />
                   </div>
-                  <div>
+                  <div className="space-y-2">
                     <h4 className="text-xs font-mono text-slate-500 uppercase tracking-widest">Contato Direto</h4>
-                    <a
-                      href={`https://wa.me/${rawPhone}`}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="text-white hover:text-brand-yellow text-lg font-bold mt-0.5 inline-block transition-colors font-display"
-                    >
-                      {phone}
-                    </a>
+                    {WHATSAPP_UNITS.map((unit) => (
+                      <div key={unit.id}>
+                        <WhatsAppUnitButton
+                          message="Olá! Gostaria de falar com um especialista da Ação Total."
+                          className="text-left text-white hover:text-brand-yellow text-base font-bold transition-colors font-display"
+                        >
+                          {unit.name}
+                        </WhatsAppUnitButton>
+                        <div className="text-sm text-slate-400">{unit.displayPhone}</div>
+                      </div>
+                    ))}
                     <div className="text-[11px] text-slate-500">Disponível para ligações e WhatsApp</div>
                   </div>
                 </div>
@@ -161,9 +158,9 @@ export default function ContactFooter({ onNavigate }: ContactFooterProps) {
                     className="space-y-6"
                   >
                     <div>
-                      <h3 className="text-xl font-bold text-white mb-2">Envie uma Proposta</h3>
+                      <h3 className="text-xl font-bold text-white mb-2">Solicite sua Proposta</h3>
                       <p className="text-xs text-slate-400 mb-6">
-                        Analisamos o perfil do seu segmento e respondemos com um plano sob medida em até 24 horas úteis.
+                        Conte-nos o que sua empresa precisa. Nossa equipe analisa seu perfil e envia uma proposta sob medida em até 24 horas úteis.
                       </p>
                     </div>
 
@@ -254,7 +251,7 @@ export default function ContactFooter({ onNavigate }: ContactFooterProps) {
                       ) : (
                         <>
                           <Send className="w-4 h-4 text-black stroke-[3]" />
-                          Enviar Proposta Comercial
+                          Solicitar Proposta Comercial
                         </>
                       )}
                     </motion.button>
@@ -272,24 +269,20 @@ export default function ContactFooter({ onNavigate }: ContactFooterProps) {
                       <CheckCircle2 className="w-10 h-10" />
                     </div>
 
-                    <h3 className="text-2xl font-bold text-white mb-2">Agradecemos o Contato, {formData.nome}!</h3>
+                    <h3 className="text-2xl font-bold text-white mb-2">Solicitação recebida, {formData.nome}!</h3>
                     <p className="text-slate-400 text-sm max-w-md mx-auto mb-8">
-                      Sua solicitação de orçamento foi processada localmente com sucesso. Para acelerar o seu atendimento e falar diretamente com nossa equipe no WhatsApp, utilize o link abaixo:
+                      Recebemos seus dados. Nossa equipe entrará em contato para entender sua necessidade e preparar uma proposta comercial sob medida.
                     </p>
 
                     <div className="flex flex-col sm:flex-row gap-4 w-full justify-center">
-                      <motion.a
-                        href={getWhatsappPrefilledLink()}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        whileHover={{ scale: 1.03 }}
-                        whileTap={{ scale: 0.98 }}
+                      <WhatsAppUnitButton
+                        message={getWhatsappMessage()}
                         className="bg-brand-yellow hover:bg-[#ffd633] text-black font-extrabold uppercase tracking-wider px-6 py-3.5 rounded-xl text-sm flex items-center justify-center gap-2 shadow-lg shadow-brand-yellow/10 cursor-pointer"
                       >
                         <MessageCircle className="w-4 h-4 fill-current text-black" />
-                        Enviar via WhatsApp
+                        Falar com a equipe no WhatsApp
                         <ExternalLink className="w-3.5 h-3.5 text-black stroke-[3]" />
-                      </motion.a>
+                      </WhatsAppUnitButton>
 
                       <button
                         onClick={handleResetForm}

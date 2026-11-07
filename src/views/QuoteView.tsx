@@ -16,6 +16,7 @@ import {
   FileText,
   Tv
 } from "lucide-react";
+import WhatsAppUnitButton from "../components/WhatsAppUnitButton";
 
 interface ServiceChannel {
   id: string;
@@ -217,7 +218,7 @@ export default function QuoteView() {
   const results = calculateCosts();
 
   // Trigger WhatsApp custom pre-filled checkout link
-  const handleWhatsappCheckout = () => {
+  const getWhatsappMessage = () => {
     let summaryText = `*SIMULAÇÃO DE ORÇAMENTO - AÇÃO TOTAL PROPAGANDA*\n\n`;
     summaryText += `Olá! Montei um pacote de estratégias de propaganda no simulador do site e gostaria de formalizar a proposta com um especialista. Segue meu plano:\n\n`;
 
@@ -234,7 +235,7 @@ export default function QuoteView() {
     summaryText += `----------------------------------\n\n`;
     summaryText += `Gostaria de fechar este pacote e combinar os detalhes de roteiro e datas. Aguardo contato!`;
 
-    window.open(`https://wa.me/5562991962033?text=${encodeURIComponent(summaryText)}`, "_blank", "noopener,noreferrer");
+    return summaryText;
   };
 
   return (
@@ -673,13 +674,13 @@ export default function QuoteView() {
                     Ajustar Detalhes
                   </button>
 
-                  <button
-                    onClick={handleWhatsappCheckout}
+                  <WhatsAppUnitButton
+                    message={getWhatsappMessage()}
                     className="flex-1 py-4 bg-brand-yellow hover:bg-[#ffd633] text-black font-extrabold uppercase tracking-wider text-xs rounded-xl shadow-lg shadow-brand-yellow/10 hover:shadow-brand-yellow/20 transition-all duration-300 flex items-center justify-center gap-2 cursor-pointer"
                   >
                     <MessageCircle className="w-4.5 h-4.5 fill-current text-black" />
                     Enviar Proposta via WhatsApp
-                  </button>
+                  </WhatsAppUnitButton>
                 </div>
               </motion.div>
             )}

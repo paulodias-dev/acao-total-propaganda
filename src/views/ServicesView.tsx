@@ -15,6 +15,7 @@ import {
   Volume2,
   Tv
 } from "lucide-react";
+import { ENABLE_SMART_PROPOSAL_SIMULATOR } from "../config/features";
 
 interface ServicesViewProps {
   initialActiveServiceId?: string;
@@ -154,22 +155,22 @@ export default function ServicesView({ initialActiveServiceId, onNavigate }: Ser
     },
     {
       id: "trafego-pago",
-      shortTitle: "Marketing Digital",
-      title: "Marketing Digital & Tráfego de Performance",
-      tagline: "Apareça na tela do celular de quem mora perto e quer comprar de você.",
+      shortTitle: "Instagram para Comércio",
+      title: "Marketing Digital para Comércio",
+      tagline: "Transforme o Instagram da sua empresa em uma vitrine que atrai clientes e gera vendas.",
       icon: TrendingUp,
-      desc: "Não adianta apenas fazer barulho offline se sua empresa não existe no mundo online. Criamos campanhas cirúrgicas de anúncios no Google Ads (para aparecer no topo quando pesquisarem seu serviço), Instagram Ads e Facebook Ads (para impactar os moradores do bairro com as ofertas da semana).",
+      desc: "Cuidamos da presença digital do seu comércio com estratégia, criação de artes profissionais e campanhas para Instagram e Facebook. Produzimos conteúdos para divulgar seus produtos, ofertas e datas especiais, alcançando pessoas da sua região e levando novos clientes para o WhatsApp.",
       benefits: [
-        "Segmentação local por raio de quilômetros ao redor de seu ponto de venda.",
-        "Criação de Landing Pages ultrarrápidas focadas em converter clique em contato WhatsApp.",
-        "Otimização do perfil de Google Meu Negócio / Google Maps para atração orgânica.",
-        "Análise de dados semanais para investimento inteligente e redução do custo de aquisição de leads."
+        "Artes profissionais para feed, stories, ofertas e campanhas sazonais.",
+        "Planejamento de conteúdo e textos comerciais para manter o Instagram ativo.",
+        "Anúncios no Instagram e Facebook direcionados para clientes da sua região.",
+        "Chamadas estratégicas para transformar visualizações em directs, pedidos e contatos no WhatsApp."
       ],
       specs: [
-        { label: "Plataformas", value: "Google Ads, Meta Ads (Instagram/Facebook) e TikTok Ads" },
-        { label: "Páginas inclusas", value: "Landing Pages institucionais de alta velocidade e conversão" },
-        { label: "Foco", value: "Vendas locais imediatas e geração de leads qualificados" },
-        { label: "Métricas", value: "Acompanhamento do Retorno sobre Investimento (ROAS)" }
+        { label: "Canais", value: "Instagram, Facebook e WhatsApp" },
+        { label: "Criação", value: "Artes para feed, stories, ofertas e datas comemorativas" },
+        { label: "Foco", value: "Mais alcance local, directs, pedidos e visitas à loja" },
+        { label: "Estratégia", value: "Conteúdo, identidade visual e anúncios para comércio" }
       ]
     }
   ];
@@ -273,13 +274,15 @@ export default function ServicesView({ initialActiveServiceId, onNavigate }: Ser
 
               {/* Action Buttons inside services views */}
               <div className="flex flex-col sm:flex-row gap-4 border-t border-white/5 pt-6 w-full">
-                <button
-                  onClick={() => onNavigate("orcamento")}
-                  className="bg-brand-yellow hover:bg-[#ffd633] text-black font-extrabold text-xs uppercase tracking-widest px-6 py-3.5 rounded-xl shadow-lg shadow-brand-yellow/10 flex items-center justify-center gap-2 cursor-pointer"
-                >
-                  Fazer Simulação de Custos
-                  <ArrowRight className="w-4 h-4 text-black stroke-[3]" />
-                </button>
+                {ENABLE_SMART_PROPOSAL_SIMULATOR && (
+                  <button
+                    onClick={() => onNavigate("orcamento")}
+                    className="bg-brand-yellow hover:bg-[#ffd633] text-black font-extrabold text-xs uppercase tracking-widest px-6 py-3.5 rounded-xl shadow-lg shadow-brand-yellow/10 flex items-center justify-center gap-2 cursor-pointer"
+                  >
+                    Fazer Simulação de Custos
+                    <ArrowRight className="w-4 h-4 text-black stroke-[3]" />
+                  </button>
+                )}
                 <button
                   onClick={() => onNavigate("contato")}
                   className="bg-white/5 hover:bg-white/10 text-white font-semibold text-xs uppercase tracking-wider px-6 py-3.5 rounded-xl border border-white/10 transition-colors cursor-pointer"

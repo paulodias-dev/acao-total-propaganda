@@ -11,6 +11,8 @@ import {
   MessageCircle,
   ExternalLink
 } from "lucide-react";
+import { WHATSAPP_UNITS } from "../config/locations";
+import WhatsAppUnitButton from "../components/WhatsAppUnitButton";
 
 interface FAQItem {
   question: string;
@@ -28,9 +30,6 @@ export default function ContactView() {
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [openFaqIdx, setOpenFaqIdx] = useState<number | null>(0);
 
-  const rawPhone = "5562991962033";
-  const displayPhone = "(62) 99196-2033";
-
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target;
     setFormData((prev) => ({ ...prev, [name]: value }));
@@ -46,13 +45,10 @@ export default function ContactView() {
     }, 1200);
   };
 
-  const getWhatsappLink = () => {
-    const text = `Olá! Me chamo *${formData.nome}*.\n` +
+  const getWhatsappMessage = () => `Olá! Me chamo *${formData.nome}*.\n` +
       `📞 Telefone: *${formData.telefone}*\n` +
       `🏢 Segmento: *${formData.segmento || "Não informado"}*\n` +
       `📝 Mensagem: ${formData.mensagem || "Gostaria de solicitar um orçamento para alavancar minha empresa com a Ação Total!"}`;
-    return `https://wa.me/${rawPhone}?text=${encodeURIComponent(text)}`;
-  };
 
   const handleReset = () => {
     setFormData({ nome: "", telefone: "", segmento: "", mensagem: "" });
@@ -117,14 +113,19 @@ export default function ContactView() {
                   </div>
                   <div>
                     <h4 className="text-[10px] font-mono text-slate-500 uppercase tracking-widest">WhatsApp & Ligações</h4>
-                    <a
-                      href={`https://wa.me/${rawPhone}`}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="text-white hover:text-brand-yellow text-base font-bold mt-0.5 inline-block transition-colors font-display"
-                    >
-                      {displayPhone}
-                    </a>
+                    <div className="space-y-2">
+                      {WHATSAPP_UNITS.map((unit) => (
+                        <div key={unit.id}>
+                          <WhatsAppUnitButton
+                            message="Olá! Gostaria de falar com um especialista da Ação Total."
+                            className="text-left text-white hover:text-brand-yellow text-base font-bold transition-colors font-display"
+                          >
+                            {unit.name}
+                          </WhatsAppUnitButton>
+                          <div className="text-sm text-slate-400">{unit.displayPhone}</div>
+                        </div>
+                      ))}
+                    </div>
                     <p className="text-[10px] text-slate-500 font-light mt-0.5">Disponível de segunda a sábado</p>
                   </div>
                 </div>
@@ -262,7 +263,7 @@ export default function ContactView() {
                       ) : (
                         <>
                           <Send className="w-4 h-4 text-black stroke-[3]" />
-                          Enviar Proposta Comercial
+                          Solicitar Proposta Comercial
                         </>
                       )}
                     </motion.button>
@@ -280,22 +281,20 @@ export default function ContactView() {
                       <CheckCircle2 className="w-8 h-8" />
                     </div>
 
-                    <h3 className="text-xl font-bold text-white mb-2">Solicitação Enviada!</h3>
+                    <h3 className="text-xl font-bold text-white mb-2">Solicitação recebida!</h3>
                     <p className="text-slate-400 text-xs max-w-sm mx-auto mb-8">
-                      Olá {formData.nome}, seu contato foi registrado no simulador local. Para obter retorno instantâneo do gerente, use o link do WhatsApp abaixo:
+                      Olá {formData.nome}, recebemos seus dados. Nossa equipe vai preparar uma proposta comercial sob medida para sua empresa. Se preferir, fale conosco pelo WhatsApp:
                     </p>
 
                     <div className="flex flex-col sm:flex-row gap-4 w-full justify-center">
-                      <a
-                        href={getWhatsappLink()}
-                        target="_blank"
-                        rel="noopener noreferrer"
+                      <WhatsAppUnitButton
+                        message={getWhatsappMessage()}
                         className="bg-brand-yellow hover:bg-[#ffd633] text-black font-extrabold uppercase tracking-wider px-6 py-3 rounded-xl text-xs flex items-center justify-center gap-2 shadow-lg shadow-brand-yellow/10"
                       >
                         <MessageCircle className="w-4.5 h-4.5 fill-current text-black" />
                         Chamar no WhatsApp
                         <ExternalLink className="w-3.5 h-3.5 text-black stroke-[3]" />
-                      </a>
+                      </WhatsAppUnitButton>
                       <button
                         onClick={handleReset}
                         className="bg-white/5 hover:bg-white/10 text-slate-300 px-6 py-3 rounded-xl text-xs font-semibold border border-white/10 transition-colors"

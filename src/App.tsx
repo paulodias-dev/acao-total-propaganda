@@ -10,6 +10,7 @@ import ContactFooter from "./components/ContactFooter";
 import FloatingWhatsapp from "./components/FloatingWhatsapp";
 import ScrollToTop from "./components/ScrollToTop";
 import { Sparkles } from "lucide-react";
+import { ENABLE_SMART_PROPOSAL_SIMULATOR } from "./config/features";
 
 export default function App() {
   const [activePage, setActivePage] = useState<string>("home");
@@ -21,7 +22,12 @@ export default function App() {
   useEffect(() => {
     const handleHashChange = () => {
       const hash = window.location.hash.replace("#", "");
-      if (["home", "sobre", "servicos", "demos", "orcamento", "contato"].includes(hash)) {
+      const availablePages = ["home", "sobre", "servicos", "demos", "contato"];
+      if (ENABLE_SMART_PROPOSAL_SIMULATOR) {
+        availablePages.push("orcamento");
+      }
+
+      if (availablePages.includes(hash)) {
         setActivePage(hash);
       } else {
         setActivePage("home");
@@ -79,6 +85,7 @@ export default function App() {
       case "demos":
         return <DemosView />;
       case "orcamento":
+        if (!ENABLE_SMART_PROPOSAL_SIMULATOR) return <HomeView onNavigate={handleNavigate} />;
         return <QuoteView />;
       case "contato":
         return <ContactView />;
@@ -98,10 +105,10 @@ export default function App() {
         <Sparkles className="w-4 h-4 animate-spin-slow text-black" />
         <span>PROMOÇÃO DE INVERNO: Ganhe a produção de 1 Spot de Rádio Corporativa ao contratar qualquer solução volante!</span>
         <button
-          onClick={() => handleNavigate("orcamento")}
+          onClick={() => handleNavigate(ENABLE_SMART_PROPOSAL_SIMULATOR ? "orcamento" : "contato")}
           className="underline hover:text-neutral-800 transition-colors cursor-pointer ml-1.5 font-bold"
         >
-          Aproveitar Oferta
+          {ENABLE_SMART_PROPOSAL_SIMULATOR ? "Aproveitar Oferta" : "Falar com Especialista"}
         </button>
       </div>
 

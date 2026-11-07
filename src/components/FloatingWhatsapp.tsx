@@ -1,11 +1,8 @@
 import React from "react";
-import { motion } from "motion/react";
 import { MessageCircle } from "lucide-react";
+import WhatsAppUnitButton from "./WhatsAppUnitButton";
 
 export default function FloatingWhatsapp() {
-  const rawPhone = "5562991962033";
-  const whatsappUrl = `https://wa.me/${rawPhone}?text=Olá!%20Gostaria%20de%20solicitar%20um%20orçamento%20para%20minha%20empresa.`;
-
   return (
     <div className="fixed bottom-6 right-6 z-50 flex items-center justify-center">
       {/* Dynamic pulsing glow ring */}
@@ -13,18 +10,14 @@ export default function FloatingWhatsapp() {
       <span className="absolute w-20 h-20 rounded-full bg-emerald-500/15 animate-pulse pointer-events-none" />
 
       {/* Main floating button */}
-      <motion.a
-        href={whatsappUrl}
-        target="_blank"
-        rel="noopener noreferrer"
-        whileHover={{ scale: 1.1, rotate: 5 }}
-        whileTap={{ scale: 0.9 }}
+      <WhatsAppUnitButton
+        message="Olá! Gostaria de solicitar um orçamento para minha empresa."
         className="relative w-14 h-14 bg-emerald-500 hover:bg-emerald-400 text-white rounded-full flex items-center justify-center shadow-2xl shadow-emerald-500/40 hover:shadow-emerald-500/60 transition-all duration-300 border border-emerald-400/20 cursor-pointer"
         id="floating-whatsapp-btn"
         aria-label="Fale conosco no WhatsApp"
       >
         <MessageCircle className="w-7 h-7 fill-white/10" />
-      </motion.a>
+      </WhatsAppUnitButton>
     </div>
   );
 }

@@ -1,15 +1,13 @@
 import React from "react";
 import { motion } from "motion/react";
 import { MessageCircle, ArrowDown, Sparkles } from "lucide-react";
+import WhatsAppUnitButton from "./WhatsAppUnitButton";
 
 interface HeroProps {
   onScrollTo: (id: string) => void;
 }
 
 export default function Hero({ onScrollTo }: HeroProps) {
-  // Direct WhatsApp link configuration
-  const whatsappUrl = "https://wa.me/5562991962033?text=Olá!%20Gostaria%20de%20falar%20com%20um%20especialista%20da%20Ação%20Total%20Propaganda.";
-
   return (
     <section
       id="hero"
@@ -74,17 +72,13 @@ export default function Hero({ onScrollTo }: HeroProps) {
           className="flex flex-col sm:flex-row gap-4 justify-center items-center w-full sm:w-auto mb-16"
           id="hero-actions"
         >
-          <motion.a
-            href={whatsappUrl}
-            target="_blank"
-            rel="noopener noreferrer"
-            whileHover={{ scale: 1.04 }}
-            whileTap={{ scale: 0.98 }}
+          <WhatsAppUnitButton
+            message="Olá! Gostaria de falar com um especialista da Ação Total Propaganda."
             className="w-full sm:w-auto px-8 py-4 rounded-full bg-brand-yellow hover:bg-[#ffd633] text-black text-base font-extrabold tracking-wide shadow-xl shadow-brand-yellow/10 hover:shadow-brand-yellow/25 transition-all duration-300 flex items-center justify-center gap-2.5 cursor-pointer"
           >
             <MessageCircle className="w-5 h-5 fill-current" />
             Falar com um Especialista
-          </motion.a>
+          </WhatsAppUnitButton>
 
           <motion.button
             onClick={() => onScrollTo("servicos")}

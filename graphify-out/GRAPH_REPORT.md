@@ -1,17 +1,17 @@
-# Graph Report - acao-total-react  (2026-11-03)
+# Graph Report - acao-total-react  (2026-11-07)
 
 ## Corpus Check
-- 23 files · ~29,064 words
+- 26 files · ~29,402 words
 - Verdict: corpus is large enough that graph structure adds value.
 - Unclassified: 3 file(s) not represented in the graph (top: .example 1, (none) 1, .css 1)
 
 ## Summary
-- 144 nodes · 205 edges · 12 communities (10 shown, 2 thin omitted)
+- 152 nodes · 243 edges · 12 communities (11 shown, 1 thin omitted)
 - Extraction: 100% EXTRACTED · 0% INFERRED · 0% AMBIGUOUS
 - Token cost: 0 input · 0 output
 
 ## Graph Freshness
-- Built from commit: `e3ba29d6`
+- Built from commit: `5c12ada3`
 - Run `git rev-parse HEAD` and compare to check if the graph is stale.
 - Run `graphify update .` after code changes (no API cost).
 
@@ -26,41 +26,41 @@
 - allowScripts
 - scripts
 - Como rodar localmente
-- Hero.tsx
+- WhatsAppUnitButton
 - AGENTS.md
 
 ## God Nodes (most connected - your core abstractions)
-1. `react` - 17 edges
-2. `lucide-react` - 15 edges
+1. `react` - 18 edges
+2. `lucide-react` - 16 edges
 3. `compilerOptions` - 15 edges
-4. `motion` - 14 edges
-5. `Ação Total Propaganda` - 13 edges
-6. `App()` - 12 edges
-7. `Como rodar localmente` - 7 edges
-8. `scripts` - 6 edges
-9. `allowScripts` - 6 edges
-10. `Componentes e comportamentos importantes` - 5 edges
+4. `motion` - 13 edges
+5. `WhatsAppUnitButton()` - 13 edges
+6. `Ação Total Propaganda` - 13 edges
+7. `App()` - 12 edges
+8. `Como rodar localmente` - 7 edges
+9. `scripts` - 6 edges
+10. `allowScripts` - 6 edges
 
 ## Surprising Connections (you probably didn't know these)
-- `App()` --calls--> `Navigation()`  [EXTRACTED]
-  src/App.tsx → src/components/Navigation.tsx
 - `App()` --calls--> `ContactFooter()`  [EXTRACTED]
   src/App.tsx → src/components/ContactFooter.tsx
-- `App()` --calls--> `FloatingWhatsapp()`  [EXTRACTED]
-  src/App.tsx → src/components/FloatingWhatsapp.tsx
-- `App()` --calls--> `ScrollToTop()`  [EXTRACTED]
-  src/App.tsx → src/components/ScrollToTop.tsx
-- `App()` --calls--> `AboutView()`  [EXTRACTED]
-  src/App.tsx → src/views/AboutView.tsx
+- `App()` --calls--> `Navigation()`  [EXTRACTED]
+  src/App.tsx → src/components/Navigation.tsx
+- `App()` --calls--> `ContactView()`  [EXTRACTED]
+  src/App.tsx → src/views/ContactView.tsx
+- `FloatingWhatsapp()` --calls--> `WhatsAppUnitButton()`  [EXTRACTED]
+  src/components/FloatingWhatsapp.tsx → src/components/WhatsAppUnitButton.tsx
+- `Hero()` --calls--> `WhatsAppUnitButton()`  [EXTRACTED]
+  src/components/Hero.tsx → src/components/WhatsAppUnitButton.tsx
 
 ## Import Cycles
 - None detected.
 
-## Communities (12 total, 2 thin omitted)
+## Communities (12 total, 1 thin omitted)
 
 ### Community 0 - "App.tsx"
-Cohesion: 0.15
-Nodes (19): lucide-react, motion, react, App(), ContactFooter(), ContactFooterProps, FloatingWhatsapp(), ScrollToTop() (+11 more)
+Cohesion: 0.17
+Nodes (16): lucide-react, motion, react, App(), FloatingWhatsapp(), ScrollToTop(), ENABLE_SMART_PROPOSAL_SIMULATOR, AboutView() (+8 more)
 
 ### Community 1 - "package.json"
 Cohesion: 0.09
@@ -98,25 +98,29 @@ Nodes (6): scripts, build, clean, dev, lint, preview
 Cohesion: 0.29
 Nodes (7): Ambiente de desenvolvimento, Build de produção, Checagem de tipos, Como rodar localmente, Instalação, Preview da build, Pré-requisitos
 
+### Community 10 - "WhatsAppUnitButton"
+Cohesion: 0.24
+Nodes (10): ContactFooter(), ContactFooterProps, Hero(), HeroProps, WhatsAppUnitButton(), WhatsAppUnitButtonProps, WHATSAPP_UNITS, WhatsAppUnit (+2 more)
+
 ## Knowledge Gaps
 - **10 isolated node(s):** `@google/genai`, `express`, `dotenv`, `@types/node`, `autoprefixer` (+5 more)
-  These have ≤1 connection - possible missing edges or undocumented components. (Counts symbols only; 98 node(s) total have ≤1 connection when file, concept and rationale nodes are included.)
-- **2 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
+  These have ≤1 connection - possible missing edges or undocumented components. (Counts symbols only; 99 node(s) total have ≤1 connection when file, concept and rationale nodes are included.)
+- **1 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
 
 ## Suggested Questions
 _Questions this graph is uniquely positioned to answer:_
 
-- **Why does `react` connect `App.tsx` to `package.json`, `Hero.tsx`, `Navigation.tsx`?**
-  _High betweenness centrality (0.115) - this node is a cross-community bridge._
+- **Why does `react` connect `App.tsx` to `package.json`, `WhatsAppUnitButton`, `Navigation.tsx`?**
+  _High betweenness centrality (0.124) - this node is a cross-community bridge._
 - **What connects `@google/genai`, `express`, `dotenv` to the rest of the system?**
   _10 weakly-connected nodes found - possible documentation gaps or missing edges._
 - **Should `package.json` be split into smaller, more focused modules?**
   _Cohesion score 0.09486166007905138 - nodes in this community are weakly interconnected._
-- **Why does `dependencies` connect `dependencies` to `package.json`?**
-  _High betweenness centrality (0.090) - this node is a cross-community bridge._
+- **Why does `lucide-react` connect `App.tsx` to `package.json`, `WhatsAppUnitButton`, `Navigation.tsx`?**
+  _High betweenness centrality (0.088) - this node is a cross-community bridge._
 - **Should `Ação Total Propaganda` be split into smaller, more focused modules?**
   _Cohesion score 0.09523809523809523 - nodes in this community are weakly interconnected._
-- **Why does `lucide-react` connect `App.tsx` to `package.json`, `Hero.tsx`, `Navigation.tsx`?**
-  _High betweenness centrality (0.078) - this node is a cross-community bridge._
+- **Why does `dependencies` connect `dependencies` to `package.json`?**
+  _High betweenness centrality (0.088) - this node is a cross-community bridge._
 - **Should `compilerOptions` be split into smaller, more focused modules?**
   _Cohesion score 0.125 - nodes in this community are weakly interconnected._
