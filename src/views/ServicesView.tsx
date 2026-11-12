@@ -49,7 +49,7 @@ export default function ServicesView({ initialActiveServiceId, onNavigate }: Ser
       specs: [
         { label: "Equipamento", value: "Corneta Fenólica Selecionada + Amplificadores de Alta Fidelidade" },
         { label: "Volume de Som", value: "Sempre de acordo com a lei municipal de decibéis (80db)" },
-        { label: "Cobertura", value: "Anápolis (GO), Aracaju (SE) (todos os bairros) e eixos metropolitanos" },
+        { label: "Cobertura", value: "Goiás, Brasília/DF e Sergipe, com operação local e disponibilidade sob consulta" },
         { label: "Duração Ideal", value: "De 3 a 6 horas diárias para consolidação da mensagem" }
       ]
     },
@@ -129,7 +129,7 @@ export default function ServicesView({ initialActiveServiceId, onNavigate }: Ser
       specs: [
         { label: "Formatos", value: "MP3 de Alta Resolução, WAV e OGG calibrados para som de rua" },
         { label: "Tipos de Áudio", value: "Spots, Jingles Comerciais, Esperas Telefônicas, Audiobooks" },
-        { label: "Vozes Disponíveis", value: "Locutores masculinos e femininos de rádio FM de Goiás e Sergipe" },
+        { label: "Vozes Disponíveis", value: "Locutores masculinos e femininos de rádio FM de Goiás, Brasília/DF e Sergipe" },
         { label: "Redação", value: "Criamos e editamos seus roteiros de ofertas sem custo adicional" }
       ]
     },

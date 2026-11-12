@@ -113,7 +113,7 @@ export default function BentoServices() {
                 Propaganda Volante & Eventos
               </h3>
               <p className="text-slate-400 text-sm mb-6 leading-relaxed">
-                Não deixe sua marca sumir do mercado, anuncie! Temos as frotas de som mais modernas e potentes de Anápolis-GO e Aracaju-SE para colocar sua mensagem em cada canto com extrema nitidez e fidelidade acústica.
+                Não deixe sua marca sumir do mercado, anuncie! Temos frotas de som preparadas para colocar sua mensagem em cada canto de Goiás, Brasília/DF e Sergipe com extrema nitidez e fidelidade acústica.
               </p>
 
               {/* Sub-itens list */}
@@ -229,7 +229,7 @@ export default function BentoServices() {
                       </div>
                       <div className="flex items-start gap-2">
                         <CheckCircle className="w-4 h-4 text-brand-yellow shrink-0 mt-0.5" />
-                        <p>Segmentação local cirúrgica direcionada estritamente ao público comprador de Anápolis-GO e Aracaju-SE.</p>
+                        <p>Segmentação local cirúrgica direcionada ao público comprador de Goiás, Brasília/DF e Sergipe.</p>
                       </div>
                     </motion.div>
                   )}
@@ -334,7 +334,7 @@ export default function BentoServices() {
               <div className="flex justify-between items-start mb-4">
                 <div className="flex flex-col">
                   <span className="text-[10px] font-mono text-slate-500 uppercase tracking-widest">AÇÃO MUSIC STREAM</span>
-                  <span className="text-xs font-bold text-slate-200 mt-1">Supermercado em Anápolis-GO / Aracaju-SE</span>
+                  <span className="text-xs font-bold text-slate-200 mt-1">Supermercado • Goiás / Brasília-DF / Sergipe</span>
                 </div>
                 <div className="h-2 w-2 rounded-full bg-brand-yellow animate-ping" />
               </div>

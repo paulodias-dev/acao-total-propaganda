@@ -11,7 +11,7 @@ import {
   MessageCircle,
   ExternalLink
 } from "lucide-react";
-import { WHATSAPP_UNITS } from "../config/locations";
+import { SERVICE_REGIONS, WHATSAPP_UNITS } from "../config/locations";
 import WhatsAppUnitButton from "../components/WhatsAppUnitButton";
 
 interface FAQItem {
@@ -24,13 +24,14 @@ export default function ContactView() {
     nome: "",
     telefone: "",
     segmento: "",
+    regiao: "",
     mensagem: ""
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [openFaqIdx, setOpenFaqIdx] = useState<number | null>(0);
 
-  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
     const { name, value } = e.target;
     setFormData((prev) => ({ ...prev, [name]: value }));
   };
@@ -48,10 +49,11 @@ export default function ContactView() {
   const getWhatsappMessage = () => `Olá! Me chamo *${formData.nome}*.\n` +
       `📞 Telefone: *${formData.telefone}*\n` +
       `🏢 Segmento: *${formData.segmento || "Não informado"}*\n` +
+      `📍 Região da campanha: *${formData.regiao || "A definir"}*\n` +
       `📝 Mensagem: ${formData.mensagem || "Gostaria de solicitar um orçamento para alavancar minha empresa com a Ação Total!"}`;
 
   const handleReset = () => {
-    setFormData({ nome: "", telefone: "", segmento: "", mensagem: "" });
+    setFormData({ nome: "", telefone: "", segmento: "", regiao: "", mensagem: "" });
     setIsSubmitted(false);
   };
 
@@ -66,7 +68,7 @@ export default function ContactView() {
     },
     {
       question: "Os veículos estão autorizados de acordo com as leis de silêncio municipais?",
-      answer: "Sim! A Ação Total Propaganda trabalha estritamente em conformidade com as regras de vigilância ambiental e leis de controle de poluição sonora em Anápolis (Goiás) e Aracaju (Sergipe). Calibramos os alto-falantes para não ultrapassar os limites legais de decibéis e circulamos somente nos horários regulamentados, garantindo uma recepção amigável do público."
+      answer: "Sim! A Ação Total Propaganda trabalha estritamente em conformidade com as regras de vigilância ambiental e leis de controle de poluição sonora de cada localidade onde atua. Calibramos os alto-falantes para não ultrapassar os limites legais de decibéis e circulamos somente nos horários regulamentados."
     },
     {
       question: "Como funciona a implantação da Rádio Ação no meu supermercado?",
@@ -99,7 +101,7 @@ export default function ContactView() {
                   Fale Direto Com Nossa Equipe
                 </h1>
                 <p className="text-slate-400 font-light text-xs sm:text-sm leading-relaxed">
-                  Pronto para fazer sua marca ser ouvida por milhares de clientes em Anápolis (GO), Aracaju (SE) e regiões? Entre em contato agora e fale com um consultor comercial especialista.
+                  Pronto para fazer sua marca ser ouvida em Goiás, Brasília/DF e Sergipe? Nossa matriz fica em Anápolis-GO e a filial em Aracaju-SE. Fale com um consultor comercial especialista.
                 </p>
               </div>
 
@@ -138,7 +140,7 @@ export default function ContactView() {
                   <div>
                     <h4 className="text-[10px] font-mono text-slate-500 uppercase tracking-widest">Local Operacional</h4>
                     <p className="text-slate-200 text-xs font-semibold mt-0.5">
-                      Anápolis - GO | Aracaju - SE
+                      Matriz: Anápolis - GO | Filial: Aracaju - SE
                     </p>
                     <p className="text-[10px] text-slate-500 font-light mt-0.5">Visitas presenciais mediante agendamento comercial</p>
                   </div>
@@ -231,6 +233,26 @@ export default function ContactView() {
                         placeholder="Ex: Supermercado, Farmácia, Loja de Roupas, E-commerce, Açougue..."
                         className="w-full bg-black/40 border border-white/10 rounded-xl px-4 py-3 text-xs text-white placeholder-slate-600 focus:outline-none focus:border-brand-yellow focus:ring-1 focus:ring-brand-yellow transition-all duration-300"
                       />
+                    </div>
+
+                    {/* Campaign region */}
+                    <div className="flex flex-col space-y-1.5">
+                      <label htmlFor="regiao" className="text-[11px] font-semibold text-slate-300">Região da Campanha</label>
+                      <select
+                        id="regiao"
+                        name="regiao"
+                        value={formData.regiao}
+                        onChange={handleInputChange}
+                        className="w-full bg-black/40 border border-white/10 rounded-xl px-4 py-3 text-xs text-white focus:outline-none focus:border-brand-yellow focus:ring-1 focus:ring-brand-yellow transition-all duration-300"
+                      >
+                        <option value="" className="bg-[#161619]">Selecione uma região</option>
+                        {SERVICE_REGIONS.map((region) => (
+                          <option key={region.id} value={region.name} className="bg-[#161619]">
+                            {region.name}
+                          </option>
+                        ))}
+                        <option value="Outra localidade" className="bg-[#161619]">Outra localidade</option>
+                      </select>
                     </div>
 
                     {/* Message */}

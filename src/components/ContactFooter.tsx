@@ -74,7 +74,7 @@ export default function ContactFooter({ onNavigate }: ContactFooterProps) {
                 Fale Conosco
               </h2>
               <p className="text-slate-400 font-light mb-8 max-w-md leading-relaxed text-sm sm:text-base">
-                Pronto para destacar sua marca em Anápolis (Goiás), Aracaju (Sergipe) e regiões? Preencha o formulário para enviar sua solicitação e receba uma proposta exclusiva feita especialmente para as necessidades do seu negócio.
+                Pronto para destacar sua marca em Goiás, Brasília/DF e Sergipe? Preencha o formulário para enviar sua solicitação e receba uma proposta exclusiva feita especialmente para as necessidades do seu negócio.
               </p>
 
               {/* Contact Information items */}
@@ -88,7 +88,7 @@ export default function ContactFooter({ onNavigate }: ContactFooterProps) {
                   <div>
                     <h4 className="text-xs font-mono text-slate-500 uppercase tracking-widest">Endereço</h4>
                     <p className="text-slate-200 text-sm font-semibold mt-0.5">
-                      Anápolis - GO | Aracaju - SE
+                      Matriz: Anápolis - GO | Filial: Aracaju - SE
                     </p>
                     <span className="text-[11px] text-slate-500 font-light">Atendimento presencial sob agendamento</span>
                   </div>
@@ -323,7 +323,7 @@ export default function ContactFooter({ onNavigate }: ContactFooterProps) {
 
         {/* SEO copy text for Local Authority */}
         <div className="text-center mt-12 pt-6 border-t border-white/5 text-[10px] text-slate-600 font-light max-w-4xl mx-auto">
-          Ação Total Propaganda Anápolis GO & Aracaju SE • Especialistas em Ativação de Marketing de Rua, Propaganda Volante c/ Trio-elétrico, Mini-Trio, Carros Pequenos com Som de Alta Qualidade, Promoções de Venda PDV, Rádio Corporativa Interna de Supermercados e Gestão de Performance de Tráfego Pago em Anápolis, Goiás e Aracaju, Sergipe.
+          Ação Total Propaganda • Matriz em Anápolis-GO e filial em Aracaju-SE • Especialistas em ativação de marketing de rua, propaganda volante, promoções de venda no PDV, rádio corporativa interna e tráfego pago em Goiás, Brasília/DF e Sergipe.
         </div>
 
       </div>

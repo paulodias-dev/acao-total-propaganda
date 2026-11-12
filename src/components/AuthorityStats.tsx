@@ -7,7 +7,7 @@ export default function AuthorityStats() {
     {
       value: "15+ Anos",
       label: "Experiência no Mercado",
-      desc: "Tradição em Anápolis-GO e Aracaju-SE",
+      desc: "Atuação em Goiás, Brasília/DF e Sergipe",
       icon: Calendar,
       color: "text-brand-yellow"
     },
@@ -77,7 +77,7 @@ export default function AuthorityStats() {
           className="mt-16 text-center max-w-3xl mx-auto border-t border-white/5 pt-12"
         >
           <p className="text-sm sm:text-base text-slate-400 leading-relaxed font-light">
-            A <strong className="text-white font-semibold">Ação Total Propaganda</strong> é sinônimo de criatividade, planejamento cirúrgico e entrega impecável em Goiás (Anápolis) e Sergipe (Aracaju). De panfletagem qualificada e ações promocionais de rua ao marketing digital estratégico, nosso foco absoluto é transformar a comunicação de sua marca em faturamento real.
+            A <strong className="text-white font-semibold">Ação Total Propaganda</strong> é sinônimo de criatividade, planejamento cirúrgico e entrega impecável em Goiás, Brasília/DF e Sergipe. Com matriz em Anápolis e filial em Aracaju, transformamos a comunicação de sua marca em faturamento real.
           </p>
         </motion.div>
       </div>

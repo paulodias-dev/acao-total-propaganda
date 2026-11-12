@@ -2,6 +2,8 @@
 
 Landing page institucional e comercial da Ação Total Propaganda, com foco em captação de leads, apresentação dos serviços da agência e direcionamento rápido para contato via WhatsApp.
 
+A atuação comercial é apresentada por região: Goiás, Brasília/DF e Sergipe, com matriz em Anápolis-GO e filial em Aracaju-SE.
+
 O projeto foi construído em React + Vite, com interface animada em `motion` e estilização via Tailwind CSS v4. A navegação funciona em formato de página única com hash routing, sem dependência de `react-router`.
 
 ## Objetivo do projeto
@@ -12,6 +14,7 @@ Este site foi pensado para:
 - destacar os serviços de propaganda volante, rádio interna, spots, panfletagem e tráfego pago;
 - incentivar contato comercial imediato;
 - oferecer um simulador simples de orçamento;
+- comunicar as áreas de atuação e a estrutura de matriz e filial;
 - manter boa experiência em desktop e mobile.
 
 ## Stack principal
@@ -153,6 +156,7 @@ Ao atualizar a operação comercial da empresa, revise principalmente:
 
 - número de WhatsApp;
 - cidades atendidas;
+- áreas de atuação e estrutura de matriz/filial em `src/config/locations.ts`;
 - textos promocionais do banner superior;
 - horários de atendimento;
 - lista de serviços;

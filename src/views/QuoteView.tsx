@@ -17,6 +17,7 @@ import {
   Tv
 } from "lucide-react";
 import WhatsAppUnitButton from "../components/WhatsAppUnitButton";
+import { SERVICE_REGIONS } from "../config/locations";
 
 interface ServiceChannel {
   id: string;
@@ -31,6 +32,7 @@ interface ServiceChannel {
 export default function QuoteView() {
   const [currentStep, setCurrentStep] = useState<1 | 2 | 3>(1);
   const [selectedChannels, setSelectedChannels] = useState<string[]>(["carro-som"]);
+  const [selectedRegion, setSelectedRegion] = useState("goias");
   
   // Configuration settings
   const [carroSomHours, setCarroSomHours] = useState(4);
@@ -216,10 +218,15 @@ export default function QuoteView() {
   };
 
   const results = calculateCosts();
+  const selectedRegionLabel = selectedRegion === "outra"
+    ? "Outra localidade"
+    : SERVICE_REGIONS.find((region) => region.id === selectedRegion)?.name ?? "A definir";
 
   // Trigger WhatsApp custom pre-filled checkout link
   const getWhatsappMessage = () => {
     let summaryText = `*SIMULAÇÃO DE ORÇAMENTO - AÇÃO TOTAL PROPAGANDA*\n\n`;
+    summaryText += `📍 *Região da campanha:* ${selectedRegionLabel}\n`;
+    summaryText += `🏢 *Estrutura de atendimento:* Matriz em Anápolis-GO e filial em Aracaju-SE\n\n`;
     summaryText += `Olá! Montei um pacote de estratégias de propaganda no simulador do site e gostaria de formalizar a proposta com um especialista. Segue meu plano:\n\n`;
 
     results.breakdown.forEach((item) => {
@@ -363,7 +370,29 @@ export default function QuoteView() {
                 <div>
                   <h2 className="text-xl font-bold text-white mb-2 font-display">Passo 2: Configure os Detalhes do Plano</h2>
                   <p className="text-xs text-slate-400">
-                    Ajuste as horas, dias, filiais ou investimento diário dos canais selecionados para calcular o orçamento.
+                    Informe a região da campanha e ajuste as horas, dias, filiais ou investimento diário dos canais selecionados.
+                  </p>
+                </div>
+
+                <div className="bg-brand-yellow/5 p-5 rounded-2xl border border-brand-yellow/20 space-y-3">
+                  <label htmlFor="quote-region" className="text-xs font-bold text-brand-yellow flex items-center gap-2 font-display">
+                    Região da campanha
+                  </label>
+                  <select
+                    id="quote-region"
+                    value={selectedRegion}
+                    onChange={(event) => setSelectedRegion(event.target.value)}
+                    className="w-full bg-black/40 border border-white/10 rounded-xl px-4 py-3 text-xs text-white focus:outline-none focus:border-brand-yellow focus:ring-1 focus:ring-brand-yellow transition-all duration-300"
+                  >
+                    {SERVICE_REGIONS.map((region) => (
+                      <option key={region.id} value={region.id} className="bg-[#161619]">
+                        {region.name} — {region.operationalNote}
+                      </option>
+                    ))}
+                    <option value="outra" className="bg-[#161619]">Outra localidade — confirmar disponibilidade</option>
+                  </select>
+                  <p className="text-[10px] text-slate-500">
+                    A disponibilidade de frota e o formato da operação serão confirmados pela equipe comercial.
                   </p>
                 </div>
 
@@ -579,7 +608,7 @@ export default function QuoteView() {
                           className="w-full h-1 bg-white/10 rounded-lg appearance-none cursor-pointer accent-brand-yellow"
                         />
                         <span className="text-[10px] text-slate-500 block mt-1">
-                          Sugerimos pelo menos R$ 20,00 por dia para ter boa visibilidade comercial em Anápolis ou Aracaju. (Incluso taxa de gestão fixa de R$ 600,00/mês).
+                          Sugerimos pelo menos R$ 20,00 por dia para ter boa visibilidade comercial na região escolhida. (Incluso taxa de gestão fixa de R$ 600,00/mês).
                         </span>
                       </div>
                     </div>
@@ -628,6 +657,10 @@ export default function QuoteView() {
 
                 {/* Pricing Table Invoice style */}
                 <div className="bg-black/40 rounded-2xl border border-white/10 p-5 space-y-4" id="invoice-breakdown-box">
+                  <div className="flex items-center justify-between gap-4 rounded-xl bg-brand-yellow/10 border border-brand-yellow/20 px-3 py-2 text-xs">
+                    <span className="text-slate-400">Região da campanha</span>
+                    <span className="text-brand-yellow font-bold text-right">{selectedRegionLabel}</span>
+                  </div>
                   <div className="max-h-[200px] overflow-y-auto space-y-3 pr-2">
                     {results.breakdown.map((item, idx) => (
                       <div key={idx} className="flex justify-between items-start border-b border-white/5 pb-3 last:border-0 last:pb-0">

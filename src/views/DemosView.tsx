@@ -73,7 +73,7 @@ export default function DemosView() {
       voiceStyle: "Jovem, Vibrante, Estilosa e Contagiante",
       bgBeatType: "clothing",
       subtitleText: [
-        "Alô Anápolis e Aracaju! Chegou a loja que vai revolucionar o seu guarda-roupa! Closet Chic! 👗👠",
+        "Alô Goiás, Brasília e Sergipe! Chegou a loja que vai revolucionar o seu guarda-roupa! Closet Chic! 👗👠",
         "Grande inauguração neste sábado com coquetel especial e DJ ao vivo esperando por você!",
         "Toda a loja com 30% de desconto na primeira compra. Vestidos, jeans e alfaiataria incríveis!",
         "Closet Chic: Sinta-se elegante, sinta-se poderosa! Visite nossas lojas físicas. Não perca! 🎉"
@@ -86,7 +86,7 @@ export default function DemosView() {
       voiceStyle: "Voz Grave, Impactante, Urgente e Assertiva",
       bgBeatType: "cars",
       subtitleText: [
-        "ATENÇÃO! É O MAIOR FEIRÃO DE CARROS JÁ VISTO EM ANÁPOLIS E ARACAJU! SPEED MOTORES! 🚗💨",
+        "ATENÇÃO! É O MAIOR FEIRÃO DE CARROS JÁ VISTO EM GOIÁS, BRASÍLIA E SERGIPE! SPEED MOTORES! 🚗💨",
         "Taxa zero de verdade! Entrada facilitada em até dez vezes no cartão sem juros!",
         "Mais de cem veículos seminovos revisados com garantia total e IPVA pago! 🛡️",
         "É só este final de semana! Traga seu usado, pagamos até cem por cento da tabela Fipe!"
@@ -95,14 +95,14 @@ export default function DemosView() {
     {
       id: "political",
       niche: "Campanha Institucional",
-      title: "Prefeitura de Anápolis - Avanço Real",
+      title: "Prefeitura de Goiás - Avanço Real",
       voiceStyle: "Solene, Confiante, Inspirador e Firme",
       bgBeatType: "political",
       subtitleText: [
-        "Trabalho que se vê, progresso que se sente. Prefeitura de Anápolis. 🏢🌱",
+        "Trabalho que se vê, progresso que se sente. Prefeitura de Goiás. 🏢🌱",
         "Mais de dez novas escolas em tempo integral entregues e o novo hospital municipal operando.",
         "Estamos asfaltando mais de cinquenta bairros, trazendo dignidade e segurança para as famílias.",
-        "Anápolis no rumo certo. Trabalho, honestidade e compromisso com o cidadão."
+        "Goiás no rumo certo. Trabalho, honestidade e compromisso com o cidadão."
       ]
     }
   ];

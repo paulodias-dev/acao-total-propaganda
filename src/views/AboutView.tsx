@@ -11,6 +11,7 @@ import {
   Volume2,
   Tv
 } from "lucide-react";
+import { SERVICE_REGIONS } from "../config/locations";
 
 export default function AboutView() {
   const pillars = [
@@ -36,7 +37,7 @@ export default function AboutView() {
 
   const values = [
     { name: "Transparência", desc: "Fornecemos relatórios detalhados com rotas rastreadas via GPS para atestar a circulação contratada." },
-    { name: "Tradição Local", desc: "Temos orgulho de ser uma agência consolidada em Anápolis e agora com forte expansão e cobertura em Aracaju, entendendo as nuances dos mercados goiano e sergipano como ninguém." },
+    { name: "Tradição Local", desc: "Temos matriz em Anápolis, filial em Aracaju e uma operação preparada para atender campanhas em Goiás, Brasília/DF e Sergipe." },
     { name: "Inovação Sonora", desc: "Pioneiros na introdução de transmissões automatizadas de ofertas e rádio interna no varejo local." },
     { name: "Resultados Imediatos", desc: "Acreditamos que a propaganda volante é a mídia mais veloz para gerar tráfego em frentes de loja e liquidações." }
   ];
@@ -70,13 +71,13 @@ export default function AboutView() {
               Nascemos para tirar marcas do anonimato e gerar vendas imediatas.
             </h2>
             <p className="text-slate-300 text-sm sm:text-base leading-relaxed font-light">
-              Nascida em Anápolis, Goiás e expandindo sua excelência para Aracaju, Sergipe, a <strong>Ação Total Propaganda</strong> surgiu com a proposta de elevar o nível técnico e estratégico da propaganda de som volante. Percebemos que o mercado estava saturado de propaganda barulhenta, sem nitidez e sem planejamento inteligente de rotas.
+              Nascida em Anápolis, Goiás, e expandindo sua excelência para Brasília/DF e Sergipe, a <strong>Ação Total Propaganda</strong> surgiu com a proposta de elevar o nível técnico e estratégico da propaganda de som volante. Percebemos que o mercado estava saturado de propaganda barulhenta, sem nitidez e sem planejamento inteligente de rotas.
             </p>
             <p className="text-slate-300 text-sm sm:text-base leading-relaxed font-light">
               Investimos pesadamente em frotas modernas de trios, mini-trios e carros com excelente acústica, eliminando chiados e garantindo um som limpo e agradável. Somamos a isso a consultoria de roteiro, locutores profissionais de estúdio, e posteriormente, a expansão para marketing digital de alta performance e sistemas de Rádio Interna para pontos de venda.
             </p>
             <p className="text-slate-400 text-sm leading-relaxed font-light">
-              Hoje, somos parceiros estratégicos das maiores redes de supermercados, redes de farmácias de manipulação, concessionárias, construtoras e lojas de varejo nas regiões de Anápolis/Goiás e Aracaju/Sergipe, orgulhosos por entregar resultados financeiros reais desde as primeiras horas de campanha na rua.
+              Hoje, somos parceiros estratégicos de redes de supermercados, farmácias, concessionárias, construtoras e lojas de varejo em Goiás, Brasília/DF e Sergipe, orgulhosos por entregar resultados financeiros reais desde as primeiras horas de campanha na rua.
             </p>
           </div>
 
@@ -91,22 +92,16 @@ export default function AboutView() {
               </h3>
               
               <p className="text-xs text-slate-300 mb-6 leading-relaxed">
-                Temos bases operacionais estratégicas em Anápolis (GO) e Aracaju (SE) com autorização e frota preparada para atender clientes comerciais em ambas as regiões:
+                Nossa matriz em Anápolis-GO e filial em Aracaju-SE dão suporte a campanhas em Goiás, Brasília/DF e Sergipe. A disponibilidade de frota é confirmada conforme a cidade, o período e o objetivo da ação:
               </p>
 
               <div className="space-y-3">
-                {[
-                  { city: "Anápolis (Sede Principal - GO)", desc: "100% de cobertura urbana e comercial diária." },
-                  { city: "Aracaju (Sede Nordeste - SE)", desc: "Cobertura total na capital sergipana e cidades metropolitanas." },
-                  { city: "Goiânia e Região Metropolitana", desc: "Campanhas sazonais e ativações corporativas." },
-                  { city: "Região do Entorno e Brasília", desc: "Lançamentos e feirões sob consulta de frota." },
-                  { city: "Cidades Satélites & Central de Goiás", desc: "Atendimento regional com suporte a eventos." }
-                ].map((loc, idx) => (
-                  <div key={idx} className="flex gap-2.5 items-start text-xs border-b border-white/5 pb-2.5 last:border-0 last:pb-0">
+                {SERVICE_REGIONS.map((region) => (
+                  <div key={region.id} className="flex gap-2.5 items-start text-xs border-b border-white/5 pb-2.5 last:border-0 last:pb-0">
                     <CheckCircle2 className="w-4 h-4 text-brand-yellow shrink-0 mt-0.5" />
                     <div>
-                      <h4 className="text-white font-bold">{loc.city}</h4>
-                      <p className="text-[10px] text-slate-500">{loc.desc}</p>
+                      <h4 className="text-white font-bold">{region.name}</h4>
+                      <p className="text-[10px] text-slate-500">{region.operationalNote}. {region.description}</p>
                     </div>
                   </div>
                 ))}
@@ -122,7 +117,7 @@ export default function AboutView() {
               Nosso Padrão de Qualidade é Incomparável
             </h2>
             <p className="text-slate-400 text-xs sm:text-sm max-w-xl mx-auto mt-2 font-light">
-              Entenda por que a Ação Total Propaganda é contratada repetidamente pelas marcas de maior prestígio de Goiás e Sergipe.
+              Entenda por que a Ação Total Propaganda é contratada repetidamente pelas marcas de maior prestígio de Goiás, Brasília/DF e Sergipe.
             </p>
           </div>
 
