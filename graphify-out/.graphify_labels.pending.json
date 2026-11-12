@@ -5,7 +5,8 @@
   "3": "compilerOptions",
   "4": "dependencies",
   "5": "devDependencies",
-  "8": "scripts",
+  "6": "Navigation.tsx",
+  "7": "vite-env.d.ts",
   "10": "react",
   "11": "AGENTS.md"
 }

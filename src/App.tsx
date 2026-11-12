@@ -9,12 +9,30 @@ import ContactView from "./views/ContactView";
 import ContactFooter from "./components/ContactFooter";
 import FloatingWhatsapp from "./components/FloatingWhatsapp";
 import ScrollToTop from "./components/ScrollToTop";
+import CookieConsent from "./components/CookieConsent";
 import { Sparkles } from "lucide-react";
 import { ENABLE_SMART_PROPOSAL_SIMULATOR } from "./config/features";
+import {
+  getAnalyticsConsent,
+  setAnalyticsConsent,
+  trackNavigationClick,
+  trackPageView,
+} from "./lib/analytics";
+import type { AnalyticsConsent } from "./lib/analytics";
+
+const pageTitles: Record<string, string> = {
+  home: "Início",
+  sobre: "Quem Somos",
+  servicos: "Serviços",
+  demos: "Showroom",
+  orcamento: "Simulador de orçamento",
+  contato: "Contato",
+};
 
 export default function App() {
   const [activePage, setActivePage] = useState<string>("home");
   const [selectedSubService, setSelectedSubService] = useState<string | undefined>(undefined);
+  const [cookieConsent, setCookieConsent] = useState<AnalyticsConsent | null>(() => getAnalyticsConsent());
   const [announcementHeight, setAnnouncementHeight] = useState(0);
   const announcementRef = useRef<HTMLDivElement | null>(null);
 
@@ -27,11 +45,10 @@ export default function App() {
         availablePages.push("orcamento");
       }
 
-      if (availablePages.includes(hash)) {
-        setActivePage(hash);
-      } else {
-        setActivePage("home");
-      }
+      const nextPage = availablePages.includes(hash) ? hash : "home";
+      setActivePage(nextPage);
+      document.title = `${pageTitles[nextPage] ?? "Início"} | Ação Total Propaganda`;
+      trackPageView(nextPage);
       window.scrollTo({ top: 0, behavior: "instant" as any });
     };
 
@@ -76,6 +93,15 @@ export default function App() {
     window.scrollTo({ top: 0, behavior: "smooth" });
   };
 
+  const handleCookieConsentChange = (consent: AnalyticsConsent) => {
+    setCookieConsent(consent);
+    setAnalyticsConsent(consent);
+
+    if (consent === "accepted") {
+      trackPageView(activePage);
+    }
+  };
+
   const renderActiveView = () => {
     switch (activePage) {
       case "sobre":
@@ -105,8 +131,19 @@ export default function App() {
         <Sparkles className="w-4 h-4 animate-spin-slow text-black" />
         <span>PROMOÇÃO DE INVERNO: Ganhe a produção de 1 Spot de Rádio Corporativa ao contratar qualquer solução volante!</span>
         <button
-          onClick={() => handleNavigate(ENABLE_SMART_PROPOSAL_SIMULATOR ? "orcamento" : "contato")}
+          onClick={() => {
+            const page = ENABLE_SMART_PROPOSAL_SIMULATOR ? "orcamento" : "contato";
+            const label = ENABLE_SMART_PROPOSAL_SIMULATOR ? "Aproveitar Oferta" : "Falar com Especialista";
+            trackNavigationClick({
+              page,
+              label,
+              location: "announcement_banner",
+            });
+            handleNavigate(page);
+          }}
           className="underline hover:text-neutral-800 transition-colors cursor-pointer ml-1.5 font-bold"
+          data-ga4-nav-item={ENABLE_SMART_PROPOSAL_SIMULATOR ? "orcamento" : "contato"}
+          data-ga4-nav-location="announcement_banner"
         >
           {ENABLE_SMART_PROPOSAL_SIMULATOR ? "Aproveitar Oferta" : "Falar com Especialista"}
         </button>
@@ -134,6 +171,9 @@ export default function App() {
 
       {/* 4. Scroll To Top Button */}
       <ScrollToTop />
+
+      {/* 5. Cookie consent and preferences */}
+      <CookieConsent consent={cookieConsent} onChange={handleCookieConsentChange} />
     </div>
   );
 }

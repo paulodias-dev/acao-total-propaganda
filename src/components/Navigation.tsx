@@ -3,6 +3,7 @@ import { motion, AnimatePresence } from "motion/react";
 import { Menu, X, ArrowRight } from "lucide-react";
 import Logo from "./Logo";
 import { ENABLE_SMART_PROPOSAL_SIMULATOR } from "../config/features";
+import { trackNavigationClick } from "../lib/analytics";
 
 interface NavigationProps {
   activePage: string;
@@ -67,8 +68,9 @@ export default function Navigation({ activePage, onNavigate, announcementOffset 
     { name: "Contato", page: "contato" },
   ];
 
-  const handleLinkClick = (page: string) => {
+  const handleLinkClick = (page: string, label: string, location: string) => {
     setIsMobileMenuOpen(false);
+    trackNavigationClick({ page, label, location });
     onNavigate(page);
   };
 
@@ -91,9 +93,11 @@ export default function Navigation({ activePage, onNavigate, announcementOffset 
         <div className="max-w-7xl mx-auto px-6 flex items-center justify-between">
           {/* Replaced Text with Custom Brand Logo */}
           <button
-            onClick={() => handleLinkClick("home")}
+            onClick={() => handleLinkClick("home", "Logo", "logo")}
             className="flex items-center cursor-pointer focus:outline-none"
             id="nav-logo"
+            data-ga4-nav-item="home"
+            data-ga4-nav-location="logo"
           >
             <Logo size="md" showSubtitle={false} className="origin-left scale-[0.9] md:scale-100" />
           </button>
@@ -105,10 +109,12 @@ export default function Navigation({ activePage, onNavigate, announcementOffset 
               return (
                 <button
                   key={link.page}
-                  onClick={() => handleLinkClick(link.page)}
+                  onClick={() => handleLinkClick(link.page, link.name, "desktop_menu")}
                   className={`relative text-[11px] font-bold uppercase tracking-widest transition-colors duration-200 cursor-pointer group py-1 ${
                     isActive ? "text-brand-yellow" : "text-slate-300 hover:text-brand-yellow"
                   }`}
+                  data-ga4-nav-item={link.page}
+                  data-ga4-nav-location="desktop_menu"
                 >
                   {link.name}
                   <span className={`absolute bottom-0 left-0 h-0.5 bg-brand-yellow transition-all duration-300 ${
@@ -125,8 +131,10 @@ export default function Navigation({ activePage, onNavigate, announcementOffset 
               <motion.button
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.98 }}
-                onClick={() => handleLinkClick("orcamento")}
+                onClick={() => handleLinkClick("orcamento", "Simulador", "desktop_cta")}
                 className="bg-brand-yellow hover:bg-[#ffd633] text-black px-5 py-2 rounded-full text-[10px] font-black uppercase tracking-widest shadow-lg shadow-brand-yellow/10 hover:shadow-brand-yellow/20 transition-all duration-300 cursor-pointer flex items-center gap-1"
+                data-ga4-nav-item="orcamento"
+                data-ga4-nav-location="desktop_cta"
               >
                 Simulador
                 <ArrowRight className="w-3.5 h-3.5 text-black stroke-[3]" />
@@ -167,10 +175,12 @@ export default function Navigation({ activePage, onNavigate, announcementOffset 
                     animate={{ opacity: 1, x: 0 }}
                     transition={{ delay: idx * 0.05 }}
                     key={link.page}
-                    onClick={() => handleLinkClick(link.page)}
+                    onClick={() => handleLinkClick(link.page, link.name, "mobile_menu")}
                     className={`text-left text-base font-extrabold border-b border-white/5 pb-2.5 w-full cursor-pointer uppercase tracking-wider ${
                       isActive ? "text-brand-yellow" : "text-slate-100 hover:text-brand-yellow"
                     }`}
+                    data-ga4-nav-item={link.page}
+                    data-ga4-nav-location="mobile_menu"
                   >
                     {link.name}
                   </motion.button>
@@ -182,8 +192,10 @@ export default function Navigation({ activePage, onNavigate, announcementOffset 
                   initial={{ opacity: 0, y: 10 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: navLinks.length * 0.05 }}
-                  onClick={() => handleLinkClick("orcamento")}
+                  onClick={() => handleLinkClick("orcamento", "Simular Orçamento", "mobile_cta")}
                   className="w-full bg-brand-yellow hover:bg-[#ffd633] text-black py-3.5 rounded-xl text-center font-extrabold uppercase tracking-wider shadow-lg shadow-brand-yellow/10 cursor-pointer flex items-center justify-center gap-2"
+                  data-ga4-nav-item="orcamento"
+                  data-ga4-nav-location="mobile_cta"
                 >
                   Simular Orçamento
                   <ArrowRight className="w-4 h-4 text-black stroke-[3]" />

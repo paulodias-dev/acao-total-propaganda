@@ -13,7 +13,6 @@ import {
   Trophy,
   Tv,
   MapPin,
-  Share2,
   BarChart3
 } from "lucide-react";
 import { ENABLE_SMART_PROPOSAL_SIMULATOR } from "../config/features";
@@ -117,7 +116,7 @@ export default function HomeView({ onNavigate }: HomeViewProps) {
           >
             <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-brand-yellow/10 border border-brand-yellow/20 text-xs font-semibold text-brand-yellow mb-7 backdrop-blur-md">
               <Sparkles className="w-3.5 h-3.5" />
-              <span>MATRIZ EM ANÁPOLIS • FILIAL EM ARACAJU</span>
+              <span>Nosso foco é resultado imediato.</span>
             </div>
 
             <motion.h1
@@ -177,14 +176,14 @@ export default function HomeView({ onNavigate }: HomeViewProps) {
             </div>
           </motion.div>
 
-          {/* Animated campaign ecosystem visual */}
+          {/* Animated advertising campaign visual */}
           <motion.div
             initial={{ opacity: 0, scale: 0.94, x: 24 }}
             animate={{ opacity: 1, scale: 1, x: 0 }}
             transition={{ duration: 0.9, delay: 0.2, ease: "easeOut" }}
             className="relative min-h-[390px] sm:min-h-[460px] flex items-center justify-center"
             role="img"
-            aria-label="Ecossistema animado de campanha integrada com canais digitais, rádio, mídia no ponto de venda e ações locais"
+            aria-label="Animação de campanha publicitária com megafone, mídia digital, rádio, ponto de venda e propaganda volante"
           >
             <div className="absolute inset-6 rounded-[2rem] border border-white/10 bg-white/[0.03] shadow-2xl shadow-black/30 overflow-hidden">
               <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.035)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.035)_1px,transparent_1px)] [background-size:36px_36px]" />
@@ -193,11 +192,11 @@ export default function HomeView({ onNavigate }: HomeViewProps) {
 
               <div className="relative z-10 flex items-center justify-between p-5 sm:p-7">
                 <div>
-                  <span className="text-[10px] font-mono tracking-[0.22em] text-brand-yellow">ECOSSISTEMA DE CAMPANHA</span>
-                  <p className="text-white text-sm font-bold mt-1">Ideias conectadas. Resultado real.</p>
+                  <span className="text-[10px] font-mono tracking-[0.22em] text-brand-yellow">CENTRAL DE CAMPANHA</span>
+                  <p className="text-white text-sm font-bold mt-1">A mensagem certa. No lugar certo.</p>
                 </div>
                 <div className="flex items-center gap-2 text-[10px] text-emerald-300 font-mono">
-                  <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" /> CAMPANHA ATIVA
+                  <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" /> CAMPANHA NO AR
                 </div>
               </div>
 
@@ -221,11 +220,18 @@ export default function HomeView({ onNavigate }: HomeViewProps) {
               </svg>
 
               <motion.div
+                animate={shouldAnimate ? { rotate: 360 } : undefined}
+                transition={shouldAnimate ? { duration: 18, repeat: Infinity, ease: "linear" } : undefined}
+                className="absolute left-1/2 top-[47%] z-10 w-36 h-36 -translate-x-1/2 -translate-y-1/2 rounded-full border border-brand-yellow/20 border-dashed"
+              />
+
+              <motion.div
                 animate={shouldAnimate ? { y: [0, -8, 0], rotate: [-4, 2, -4] } : undefined}
                 transition={shouldAnimate ? { duration: 4.2, repeat: Infinity, ease: "easeInOut" } : undefined}
-                className="absolute left-1/2 top-[47%] z-20 -translate-x-1/2 -translate-y-1/2 w-20 h-20 rounded-2xl bg-brand-yellow text-black flex items-center justify-center shadow-[0_0_55px_rgba(255,210,31,0.32)]"
+                className="absolute left-1/2 top-[47%] z-20 -translate-x-1/2 -translate-y-1/2 w-20 h-20 rounded-2xl bg-brand-yellow text-black flex flex-col items-center justify-center shadow-[0_0_55px_rgba(255,210,31,0.32)]"
               >
-                <Share2 className="w-9 h-9" strokeWidth={1.8} />
+                <Megaphone className="w-8 h-8" strokeWidth={1.8} />
+                <span className="text-[8px] font-black uppercase tracking-[0.16em] mt-1">No ar</span>
                 <motion.span
                   animate={shouldAnimate ? { scale: [1, 1.35, 1], opacity: [0.55, 0, 0.55] } : undefined}
                   transition={shouldAnimate ? { duration: 2.2, repeat: Infinity, ease: "easeOut" } : undefined}
@@ -235,9 +241,9 @@ export default function HomeView({ onNavigate }: HomeViewProps) {
 
               {[
                 { label: "Mídia digital", sub: "Alcance", position: "left-[7%] top-[23%]", icon: TrendingUp },
-                { label: "Rádio & áudio", sub: "Atenção", position: "right-[7%] top-[23%]", icon: Radio },
-                { label: "Ponto de venda", sub: "Conversão", position: "left-[7%] top-[66%]", icon: Tv },
-                { label: "Ações locais", sub: "Presença", position: "right-[7%] top-[66%]", icon: Users }
+                { label: "Rádio corporativa", sub: "Atenção", position: "right-[7%] top-[23%]", icon: Radio },
+                { label: "PDV & TV indoor", sub: "Conversão", position: "left-[7%] top-[66%]", icon: Tv },
+                { label: "Propaganda volante", sub: "Presença", position: "right-[7%] top-[66%]", icon: Volume2 }
               ].map((channel, index) => {
                 const ChannelIcon = channel.icon;
                 return (
@@ -266,8 +272,8 @@ export default function HomeView({ onNavigate }: HomeViewProps) {
                 <div className="flex items-center gap-3">
                   <div className="w-9 h-9 rounded-lg bg-brand-yellow/10 flex items-center justify-center text-brand-yellow"><BarChart3 className="w-4 h-4" /></div>
                   <div>
-                    <p className="text-[10px] text-slate-500 uppercase tracking-wider">Performance em movimento</p>
-                    <p className="text-xs text-white font-semibold">+42% de alcance com estratégia integrada.</p>
+                    <p className="text-[10px] text-slate-500 uppercase tracking-wider">Resultado em movimento</p>
+                    <p className="text-xs text-white font-semibold">Mais presença. Mais atenção. Mais vendas.</p>
                   </div>
                 </div>
                 <TrendingUp className="w-4 h-4 text-brand-yellow" />

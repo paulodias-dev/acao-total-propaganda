@@ -33,7 +33,7 @@ export default function Hero({ onScrollTo }: HeroProps) {
           id="hero-badge"
         >
           <Sparkles className="w-3.5 h-3.5 text-brand-yellow animate-pulse" />
-          <span>Nosso foco é resultado imediato!</span>
+          <span>Nosso foco é resultado imediato.</span>
         </motion.div>
 
         {/* Main H1 Title */}

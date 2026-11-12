@@ -18,9 +18,9 @@
     "semantic_hash": "1948d8b17cd845b292463209abdc92db"
   },
   "src/App.tsx": {
-    "mtime": 1794089565.6503677,
-    "seen": 1794089575.805728,
-    "ast_hash": "83318ef18302793869cb5163250ca9a7",
+    "mtime": 1794482867.9188473,
+    "seen": 1794482880.0018969,
+    "ast_hash": "ec3ec930572d494b4df4556860755f4f",
     "semantic_hash": ""
   },
   "src/components/AuthorityStats.tsx": {
@@ -48,9 +48,9 @@
     "semantic_hash": ""
   },
   "src/components/Hero.tsx": {
-    "mtime": 1794089763.5946782,
-    "seen": 1794089874.328554,
-    "ast_hash": "b9c68127bc86a67236126660d01c2eb2",
+    "mtime": 1794481381.5567217,
+    "seen": 1794481392.4045372,
+    "ast_hash": "b717bb8bd4e8bdfdea9a1d2759d74435",
     "semantic_hash": ""
   },
   "src/components/Logo.tsx": {
@@ -60,9 +60,9 @@
     "semantic_hash": "782bb8c1238b9e87b9866f2fa787b8d6"
   },
   "src/components/Navigation.tsx": {
-    "mtime": 1794089565.6509075,
-    "seen": 1794089575.8057332,
-    "ast_hash": "b2becdbf4fcdf5546d5a5222cb7c485c",
+    "mtime": 1794481631.8343666,
+    "seen": 1794481640.549834,
+    "ast_hash": "e21d286ee82ffbc5a9922447775da0af",
     "semantic_hash": ""
   },
   "src/components/ScrollToTop.tsx": {
@@ -96,9 +96,9 @@
     "semantic_hash": ""
   },
   "src/views/HomeView.tsx": {
-    "mtime": 1794476504.8470523,
-    "seen": 1794476526.943701,
-    "ast_hash": "eddff4152e2ad2a206f29e68deb105cb",
+    "mtime": 1794481389.028671,
+    "seen": 1794481392.404546,
+    "ast_hash": "705e447c4502b9523bf741c76339be13",
     "semantic_hash": ""
   },
   "src/views/QuoteView.tsx": {
@@ -183,6 +183,24 @@
     "mtime": 1794438939.3395534,
     "seen": 1794439667.265932,
     "ast_hash": "8572d66b59493383ecdb0b1ffe771c99",
+    "semantic_hash": ""
+  },
+  "src/lib/analytics.ts": {
+    "mtime": 1794482867.9168785,
+    "seen": 1794482880.00191,
+    "ast_hash": "ed2df314cc5034e55c60bc0e36b53496",
+    "semantic_hash": ""
+  },
+  "src/vite-env.d.ts": {
+    "mtime": 1794481631.8330092,
+    "seen": 1794481640.549844,
+    "ast_hash": "9fc314d74cdcf75fc4ddb5f20333fff7",
+    "semantic_hash": ""
+  },
+  "src/components/CookieConsent.tsx": {
+    "mtime": 1794482899.2218618,
+    "seen": 1794482904.655061,
+    "ast_hash": "a48a1cc327b9679491da639319fd084d",
     "semantic_hash": ""
   }
 }
